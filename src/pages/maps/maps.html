@@ -140,10 +140,10 @@
         <button class="{{item.genstatus}}" style="float:left ;width:30px;height:30px;margin-top: 13px;background-color:#ffffff"></button>
         <button (click)="favorite(item.unit_id)" class="{{item.favoriteindication}}" style="margin-left: -25px;float: right ;width:30px;height:30px;margin-top: 13px;background-color:#ffffff"></button>
         <div style="overflow: hidden; padding-left: 3.0em;">
-          <h5 style="padding-top: 4px;" (click)="loadMap(item,'click')"><b>{{item.unitname}}</b></h5>
-          <h5 (click)="loadMap(item,'click')"><b>{{item.projectname}}</b></h5>
-          <h5 (click)="loadMap(item,'click')"><b>Gen Status:</b>{{item.genstatus}}</h5>
-          <h5 (click)="loadMap(item,'click')"><b>Running Hours:</b>{{item.runninghr}}</h5>
+          <h5 style="padding-top: 4px;" (click)="mapunitdetail(item)"><b>{{item.unitname}}</b></h5>
+          <h5 (click)="mapunitdetail(item)"><b>{{item.projectname}}</b></h5>
+          <h5 (click)="mapunitdetail(item)"><b>Gen Status:</b>{{item.genstatus}}</h5>
+          <h5 (click)="mapunitdetail(item)"><b>Running Hours:</b>{{item.runninghr}}</h5>
         </div>
       </ion-item>
       <ion-item-options>
