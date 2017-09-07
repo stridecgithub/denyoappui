@@ -70,7 +70,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { CompanydetailPage } from '../pages/companydetail/companydetail';
 import { Unitgrouplist } from '../pages/unitgrouplist/unitgrouplist';
-import { CalendarComponent } from '../components/calendar/calendar.component';
+//import { CalendarComponent } from '../components/calendar/calendar.component';
 //import { CalendarNewEventModal } from '../pages/calendar/calendar-new-event-modal.component';
 import { DragulaModule } from "ng2-dragula/ng2-dragula"
 //import { ITimer } from '../pages/maps/itimer';
@@ -142,7 +142,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     CustomFooterComponent,
     CompanydetailPage,
     Unitgrouplist,
-    CalendarComponent
+   // CalendarComponent
    // CalendarNewEventModal
   ],
   imports: [
@@ -218,7 +218,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     CustomFooterComponent,
     CompanydetailPage,
     Unitgrouplist,
-    CalendarComponent
+    //CalendarComponent
    // CalendarNewEventModal
   ],
   providers: [
