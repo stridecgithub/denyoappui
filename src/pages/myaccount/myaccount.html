@@ -1,0 +1,187 @@
+<!--
+  Generated template for the MyaccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--ion-header>
+  <ion-navbar color="header">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end>
+      <button ion-button (click)="notification()">
+  <ion-icon ios="ios-notifications-outline" md="md-notifications-outline"></ion-icon>
+  <ion-badge item-end class="notificationcount" *ngIf="notcount>0">{{this.notcount}}</ion-badge>
+</button>
+    </ion-buttons>
+    <ion-title>{{pageTitle}}</ion-title>
+  </ion-navbar>
+  <ion-navbar>
+    <p><label class="sheader1" (click)="previous()"><Back to Previous</label>
+
+      <label class="sheader2">Login as:{{loginas}}</label>
+
+    </p>
+  </ion-navbar>
+</ion-header-->
+
+<ion-header style="
+    background-color: #00569F;" color="bluedark">
+
+
+  <button style="background-color: #00569F;float:left;" ion-button menuToggle class="menu-toggle">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+  <ion-title  style="    text-align: center;
+    margin-top: 10px;"    class="page-title">{{pageTitle}}</ion-title>
+
+  <button style="float:left" ion-button (click)="notification()" style="position: absolute;
+    right: 0%;
+    top: 1%;background: transparent;">
+  <ion-icon ios="ios-notifications-outline" md="md-notifications-outline"></ion-icon>
+   <ion-badge style="    margin-top: 5px;
+    margin-right: 7px;" item-end class="notificationcount" *ngIf="notcount>0">{{this.notcount}}</ion-badge>
+</button>
+
+  <!--ion-navbar color="bluedark" hideBackButton>
+    <ion-title class="page-title">{{pageTitle}}</ion-title>
+    <ion-buttons start>
+      <button ion-button menuToggle class="menu-toggle">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+
+
+
+    <ion-buttons end>
+      <button ion-button (click)="notification()">
+  <ion-icon ios="ios-notifications-outline" md="md-notifications-outline"></ion-icon>
+   <ion-badge item-end class="notificationcount" *ngIf="notcount>0">{{this.notcount}}</ion-badge>
+</button>
+    </ion-buttons>
+  </ion-navbar-->
+  <ion-navbar class="backtoprevious-navbar" hideBackButton>
+    <ion-buttons start class="backtoprevious-start">
+      <button ion-button icon-left class="backtoprevious-button" (click)="previous()">
+ <ion-icon name="arrow-back" class="backtoprevious-icon"></ion-icon>
+ Back to previous
+</button>
+    </ion-buttons>
+    <ion-buttons end>
+      Login As:{{loginas}}
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="ion-content" *ngIf="VIEWACCESS==0">
+  <p style="color: red;
+    position: relative;
+    margin-top: 50%;
+   text-align:center;
+    font-size: 12pt;">{{permissionMessage}}</p>
+</ion-content>
+<ion-content padding class="ion-content" *ngIf="VIEWACCESS==1">
+  <div>
+    <div style="float: left">
+  <div>
+ <img src="img/myac.png" style="width : 25% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+  </div>
+  <div>
+ <ion-label style="    font-size: 10px;">My Account</ion-label>
+  </div>
+    </div>
+     <div style="float: left;" (click)="user()">
+  <div>
+ <img src="img/us.png" style="width : 25% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+  </div>
+  <div>
+ <ion-label style=" margin-left: 5px;   font-size: 10px;">User List</ion-label>
+  </div>
+    </div>
+    <div style="float: left;" (click)="cgroup()">
+  <div style="    margin-left: 5px;">
+ <img src="img/mycg.png" style="width : 30% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+  </div>
+  <div>
+ <ion-label style="    font-size: 10px;">Company Group</ion-label>
+  </div>
+    </div>
+    <div style="float: left;   margin-left: -7px;" (click)="urole()">
+  <div>
+ <img src="img/ur.png" style="width : 25% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+  </div>
+  <div>
+ <ion-label style="    font-size: 10px;">User Role</ion-label>
+  </div>
+    </div>
+  </div>
+  <div>
+          <button (click)="orgchart()" style="float:left;width:50%;height:40px">View Org Chart</button>
+           <button (click)="report()"style="float:left;width:50%;height:40px">Report Template</button>
+        </div>
+
+  <div class="div-alignmnt">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{photo}}">
+      </ion-avatar>
+    </ion-item>
+  </div>
+
+  <div class="div-alignmnt">
+    <b>User Id:</b> {{userid}}
+  </div>
+
+  <div class="div-alignmnt">
+    <b>Password:</b> *********
+  </div>
+
+  <div class="div-alignmnt"> <b>Personal Hash Tag:</b> {{hashtag}}</div>
+
+
+  <div class="div-alignmnt"> <b>Role:</b> {{role}}</div>
+
+  <div class="div-alignmnt"> <b>Email:</b> {{email}}</div>
+
+  <div class="div-alignmnt"> <b>Country:</b> {{country}}</div>
+
+  <div class="div-alignmnt"> <b>Job Position:</b> {{job_position}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="viewOrgChart()" href="#" >View in Org Chart</a></div>
+  
+  <button ion-button color="greenm" text-center block (click)="doEdit(userId)" *ngIf="EDITACCESS==1">Edit Profile</button>
+</ion-content>
+
+<ion-footer color="bluedark">
+  <ion-toolbar color="bluedark">
+    <ul class="quick-list">
+      <li>
+        <button ion-button icon-only clear (click)="redirectToMaps()">
+    	<ion-icon name="home" class="footer-icon">MAPS</ion-icon>
+    </button>
+      </li>
+      <li>
+        <button ion-button icon-only (click)="redirectToUser()" clear>
+    	<ion-icon name="contacts" class="footer-icon">UNITS</ion-icon>
+    </button>
+      </li>
+      <li>
+        <button ion-button icon-only (click)="redirectToMessage()" clear>
+    	<ion-icon name="chatboxes" class="footer-icon">MESSAGE</ion-icon>
+      <ion-badge item-end class="messagecount"  *ngIf="msgcount>0">{{this.msgcount}}</ion-badge>
+    </button>
+        <ion-badge color="danger"></ion-badge>
+      </li>
+      <li>
+        <button ion-button icon-only (click)="redirectCalendar()" clear>
+    	<ion-icon name="bicycle" class="footer-icon">CALENDAR</ion-icon>
+    </button>
+      </li>
+      <li>
+        <button style="width: 34px;" ion-button icon-only (click)="redirectToSettings()" clear>
+    	<ion-icon name="settings" class="footer-icon">ORG</ion-icon>
+    </button>
+      </li>
+    </ul>
+
+  </ion-toolbar>
+</ion-footer>

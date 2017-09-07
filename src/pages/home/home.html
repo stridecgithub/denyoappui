@@ -1,0 +1,65 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+  <ion-header>
+    <custom-header [header]="header_data"></custom-header>
+  </ion-header>
+  <ion-content padding class="login-content">
+    <!--div #map id="map" style="height:75%"></div-->
+    <div class="t-center"><img src="img/denyo_logo.png" class="logo"></div>
+
+    <!--ion-list>
+      <ion-item>
+        <ion-input type="text" placeholder="User ID" formControlName="userid" [(ngModel)]="userId"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Password" formControlName="password" [(ngModel)]="passWrd"></ion-input>
+      </ion-item>
+      <ion-item class="forgot" (click)="doMove()">
+        <div>Forgot?</div>
+      </ion-item>
+      <ion-item>
+        <div style="color: yellow;
+    font-size: 15px;
+    float: right;
+    position: absolute;
+    bottom: 0px;
+    right: 24px;">Ver 1.5</div>
+      </ion-item>
+    </ion-list-->
+
+    <!--a href="#" (click)="showDatePicker()">Show Datepicker</a-->
+    <ion-list>
+
+      <ion-item>
+        <ion-label stacked>User ID</ion-label>
+        <ion-input type="text" formControlName="userid" [(ngModel)]="userId"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>Password</ion-label>
+        <ion-input type="password" formControlName="password" [(ngModel)]="passWrd"></ion-input>
+      </ion-item>
+
+      <ion-item class="forgot" (click)="doMove()">
+        <div>Forgot?</div>
+      </ion-item>
+      <ion-item>
+
+        <div style="color: yellow;  
+    float: right;">Ver 1.28</div>
+      </ion-item>
+      <ion-item>
+        <div padding>
+          <button ion-button color="primary" text-center block [disabled]="!form.valid">Login</button>
+        </div>
+      </ion-item>
+
+    </ion-list>
+
+
+  </ion-content>
+
+  <!--ion-footer>
+    <button ion-button color="primary" text-center block [disabled]="!form.valid">Login</button>
+   
+  </ion-footer-->
+</form>
