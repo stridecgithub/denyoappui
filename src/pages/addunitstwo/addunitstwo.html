@@ -12,8 +12,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-  <ion-title  style="    text-align: center;
-    margin-top: 10px;"    class="page-title">{{pageTitle}}</ion-title>
+  <ion-title style="    text-align: center;
+    margin-top: 10px;" class="page-title">{{pageTitle}}</ion-title>
 
   <button style="float:left" ion-button (click)="notification()" style="position: absolute;
     right: 0%;
@@ -52,7 +52,7 @@
     </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content padding >
+<ion-content padding>
   <div>
     <img src="img/add_unit_step_2.png">
   </div>
@@ -74,12 +74,15 @@
           <ion-input type="text" [disabled]="readOnly" formControlName="controllerid" [(ngModel)]="controllerid"></ion-input>
         </ion-item>
 
+
+        <div style="color:red" *ngIf="isEdited">Note:That will affect the connection with Generator if you change the controller ID.</div>
+
         <ion-item>
           <ion-label stacked>NEA Plate Number<span class="mandatory" *ngIf="hideActionButton">*</span></ion-label>
           <ion-input [disabled]="readOnly" type="text" formControlName="neaplateno" [(ngModel)]="neaplateno"></ion-input>
         </ion-item>
 
-       <ion-item>
+        <ion-item>
           <ion-label stacked>Generator Model <span class="mandatory" *ngIf="hideActionButton">*</span></ion-label>
           <ion-select [disabled]="readOnly" [(ngModel)]="models_id" formControlName="models_id">
             <ion-option *ngFor="let modelData of responseResultModel" value="{{modelData.model_id}}">{{modelData.model}}</ion-option>
@@ -93,38 +96,39 @@
       </ion-list>
     </form>
   </div>
-</ion-content><ion-footer color="bluedark">
- <ion-footer color="bluedark">
-  <ion-toolbar color="bluedark">
-<ul class="quick-list">
-<li>
-    <button ion-button icon-only clear (click)="redirectToMaps()">
+</ion-content>
+<ion-footer color="bluedark">
+  <ion-footer color="bluedark">
+    <ion-toolbar color="bluedark">
+      <ul class="quick-list">
+        <li>
+          <button ion-button icon-only clear (click)="redirectToMaps()">
     	<ion-icon name="home" class="footer-icon">MAPS</ion-icon>
     </button>
-</li>  
-<li>  
-    <button ion-button icon-only (click)="redirectToUser()" clear>
+        </li>
+        <li>
+          <button ion-button icon-only (click)="redirectToUser()" clear>
     	<ion-icon name="contacts" class="footer-icon">UNITS</ion-icon>
     </button>
-</li>     
-<li>    
-    <button ion-button icon-only (click)="redirectToMessage()" clear>
+        </li>
+        <li>
+          <button ion-button icon-only (click)="redirectToMessage()" clear>
     	<ion-icon name="chatboxes" class="footer-icon">MESSAGE</ion-icon>
       <ion-badge item-end class="messagecount"  *ngIf="msgcount>0">{{this.msgcount}}</ion-badge>
     </button>
-    <ion-badge color="danger"></ion-badge>
-</li>    
-<li>    
-    <button ion-button icon-only (click)="redirectCalendar()" clear>
+          <ion-badge color="danger"></ion-badge>
+        </li>
+        <li>
+          <button ion-button icon-only (click)="redirectCalendar()" clear>
     	<ion-icon name="bicycle" class="footer-icon">CALENDAR</ion-icon>
     </button>
-</li>       
-<li>    
-    <button  style="width: 34px;"ion-button icon-only (click)="redirectToSettings()" clear>
+        </li>
+        <li>
+          <button style="width: 34px;" ion-button icon-only (click)="redirectToSettings()" clear>
     	<ion-icon name="settings" class="footer-icon">ORG</ion-icon>
     </button>
-</li>    
-</ul>
+        </li>
+      </ul>
 
-  </ion-toolbar>
-</ion-footer>
+    </ion-toolbar>
+  </ion-footer>

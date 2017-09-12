@@ -100,7 +100,7 @@ export class AddunitsonePage {
         this.notcount = data.json().notifycount;
       });
     this.resetFields();
-    console.log(JSON.stringify(this.NP.get("record")));
+    console.log("this.NP.get('record')" + JSON.stringify(this.NP.get("record")));
     if (this.NP.get("record")) {
       console.log("Add User:" + JSON.stringify(this.NP.get("record")));
       this.isEdited = true;
@@ -112,14 +112,17 @@ export class AddunitsonePage {
       this.location = editItem.location;
     }
     else {
+      if (localStorage.getItem("location")) {
+        this.location = localStorage.getItem("location");
+      }
       this.isEdited = false;
       this.pageTitle = 'New  Units';
     }
 
     // Get local
-   /* if (localStorage.getItem("location")) {
-      this.location = localStorage.getItem("location");
-    }*/
+    /* if (localStorage.getItem("location")) {
+       this.location = localStorage.getItem("location");
+     }*/
     //
   }
   // Determine whether we adding or editing a record
@@ -187,7 +190,7 @@ export class AddunitsonePage {
     let location: string = this.form.controls["location"].value;
 
     // Local Storage for Back to Previous for handled that data
-   // localStorage.setItem("location", location);
+    // localStorage.setItem("location", location);
     // Local Storage for Back to Previous for handled that data
 
     console.log(this.form.controls);

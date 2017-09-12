@@ -8,7 +8,7 @@ import { NgCalendarModule } from 'ionic2-calendar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { DashboardPage } from '../pages/dashboard/dashboard';
-//import { CalendarPage } from '../pages/calendar/calendar';
+import { CalendarPage } from '../pages/calendar/calendar';
 import { CompanygroupPage } from '../pages/companygroup/companygroup';
 import { AddcompanygroupPage } from '../pages/addcompanygroup/addcompanygroup';
 import { ViewcompanygroupPage } from '../pages/viewcompanygroup/viewcompanygroup';
@@ -70,7 +70,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { Deeplinks } from '@ionic-native/deeplinks';
 import { CompanydetailPage } from '../pages/companydetail/companydetail';
 import { Unitgrouplist } from '../pages/unitgrouplist/unitgrouplist';
-//import { CalendarComponent } from '../components/calendar/calendar.component';
+import { CalendarComponent } from '../components/calendar/calendar.component';
 //import { CalendarNewEventModal } from '../pages/calendar/calendar-new-event-modal.component';
 import { DragulaModule } from "ng2-dragula/ng2-dragula"
 //import { ITimer } from '../pages/maps/itimer';
@@ -83,7 +83,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     AddalarmlistPage,
     AlarmlistdetailPage,
     DashboardPage,
-    //CalendarPage,
+    CalendarPage,
     CompanygroupPage,
     AddcompanygroupPage,
     ViewcompanygroupPage,
@@ -118,7 +118,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     AddrequestsupportPage,
     AddenginedetailPage,
     EnginedetailPage,
-    //CalendarPage,
+    CalendarPage,
     CalendardetailPage,
     AddcalendarPage,
     AlarmPage,
@@ -142,7 +142,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     CustomFooterComponent,
     CompanydetailPage,
     Unitgrouplist,
-   // CalendarComponent
+    CalendarComponent
    // CalendarNewEventModal
   ],
   imports: [
@@ -160,7 +160,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     AddalarmlistPage,
     AlarmlistdetailPage,
     DashboardPage,
-    //CalendarPage,
+    CalendarPage,
     CalendardetailPage,
     CompanygroupPage,
     AddcompanygroupPage,
@@ -197,7 +197,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     AddserviceinfoPage,
     AddreporttemplatePage,
     AddrequestsupportPage,
-    //CalendarPage,
+    CalendarPage,
     AddcalendarPage,
     AlarmPage,
     AddalarmPage,
@@ -218,7 +218,7 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     CustomFooterComponent,
     CompanydetailPage,
     Unitgrouplist,
-    //CalendarComponent
+    CalendarComponent
    // CalendarNewEventModal
   ],
   providers: [

@@ -13,7 +13,7 @@ import { MapsPage } from '../maps/maps';
 import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
-import { OrgchartPage} from '../orgchart/orgchart';
+import { OrgchartPage } from '../orgchart/orgchart';
 
 /**
  * Generated class for the AddunitgroupPage page.
@@ -30,7 +30,7 @@ export class AddunitgroupPage {
   public companyid: any;
   public form: FormGroup;
   public cname: any;
-   public isSubmitted: boolean = false;
+  public isSubmitted: boolean = false;
   public remark: any;
   public ccode: any;
   public nccode: any;
@@ -80,10 +80,26 @@ export class AddunitgroupPage {
       this.pageTitle = 'Edit Unit Group';
       this.readOnly = false;
       this.hideActionButton = true;
+      console.log(this.NP.get("record"));
+      let colorcde;
+      console.log("record:----->"+this.NP.get("record").colorcode);
+      if (this.NP.get("record").colorcode == 'undefined') {
+        colorcde = '';
+      }
+
+      if (this.NP.get("record").colorcode == undefined) {
+        colorcde = '';
+      }
+
+      if (colorcde == '') {
+        document.getElementById("FBE983").classList.add("border-need1");
+      }
     }
     else {
-      document.getElementById("FBE983").classList.add("border-need");
-      // console.log("Hi");
+      // document.getElementById("FBE983").classList.add("border-need");
+      //this.ccode = "FBE983";
+
+      document.getElementById("FBE983").classList.add("border-need1");
       this.ccode = "FBE983";
       this.isEdited = false;
       this.pageTitle = 'Add Unit Group';
@@ -177,7 +193,7 @@ export class AddunitgroupPage {
   }
   updateEntry(cname, ccode, remark, userid, companyid) {
     console.log(cname, ccode, remark, userid, companyid);
-      this.isSubmitted=true;
+    this.isSubmitted = true;
     let body: string = "is_mobile=1&unitgroup_name=" + cname + "&colorcode=" + this.ccode + "&remark=" + remark + "&createdby=" + userid + "&updatedby=" + userid + "&company_id=" + companyid + "&unitgroup_id=" + this.recordID,
       type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
@@ -206,7 +222,7 @@ export class AddunitgroupPage {
       });
   }
   createEntry(cname, ccode, remark, createdby, companyid) {
-    this.isSubmitted=true;
+    this.isSubmitted = true;
     // this.isUploadedProcessing = true;
     let updatedby = createdby;
     console.log(cname, ccode, remark, companyid);
@@ -256,14 +272,13 @@ export class AddunitgroupPage {
 
 
   getColor(colorCodeValue) {
-     document.getElementById(colorCodeValue).classList.add("border-need");
-     if(this.ccode !=colorCodeValue)
-     {
-        document.getElementById(this.ccode).classList.remove("border-need");
-     }
-     
-   
- 
+    document.getElementById(colorCodeValue).classList.add("border-need");
+    if (this.ccode != colorCodeValue) {
+      document.getElementById(this.ccode).classList.remove("border-need");
+    }
+
+
+
     console.log(colorCodeValue);
     this.ccode = colorCodeValue;
   }

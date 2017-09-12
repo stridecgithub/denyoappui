@@ -440,11 +440,12 @@ export class AdduserPage {
   doUploadPhoto() {
 
     const options: CameraOptions = {
-      quality: 75,
+      quality: 25,
       destinationType: this.camera.DestinationType.FILE_URI,
       targetWidth: 200,
       targetHeight: 200,
-      sourceType: 1
+      sourceType: 1,
+      saveToPhotoAlbum: true
     }
     this.camera.getPicture(options).then((imageData) => {
       console.log(imageData);

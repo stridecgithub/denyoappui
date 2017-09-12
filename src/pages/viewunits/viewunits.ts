@@ -19,16 +19,16 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 })
 export class ViewunitsPage {
 
- public pageTitle: string;
+  public pageTitle: string;
   public loginas: any;
-  
+
   private apiServiceURL: string = "http://denyoappv2.stridecdev.com";
   public totalCount;
   pet: string = "ALL";
   public userId: any;
   public sortby = 2;
-  public ulist:any;
-  public detailvalue:any;
+  public ulist: any;
+  public detailvalue: any;
   public vendorsort = "asc";
   public ascending = true;
   public colorListArr: any;
@@ -52,22 +52,40 @@ export class ViewunitsPage {
     this.userId = localStorage.getItem("userInfoId");
     this.ulist = localStorage.getItem("viewlist");
   }
- ionViewWillEnter() {
-   this.doUnit();
-     if (this.navParams.get("record")) {
+  ionViewWillEnter() {
+    this.doUnit();
+    if (this.navParams.get("record")) {
       console.log("Service Info Record Param Value:" + JSON.stringify(this.navParams.get("record")));
     }
- }
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ViewunitsPage');
   }
-exit()
-{
+  exit() {
     this.nav.setRoot(UnitdetailsPage, {
       record: this.navParams.get("record")
     });
-}
- doUnit() {
+  }
+
+  doEdit(item, act, unitId) {
+    localStorage.setItem("unitId", unitId);
+    localStorage.setItem("iframeunitId", unitId);
+    localStorage.setItem("unitunitname", item.unitname);
+    localStorage.setItem("unitlocation", item.location);
+    localStorage.setItem("unitprojectname", item.projectname);
+    localStorage.setItem("unitcolorcode", item.colorcodeindications);
+    localStorage.setItem("unitlat", item.lat);
+    localStorage.setItem("unitlng", item.lng);
+    localStorage.setItem("runninghr", item.runninghr);
+    console.log("RHR" + item.runninghr);
+    localStorage.setItem("nsd", item.nextservicedate);
+    this.nav.setRoot(UnitdetailsPage, {
+      record: item
+    });
+    return false;
+  }
+
+  doUnit() {
     this.colorListArr = [
       "FBE983",
       "5584EE",
@@ -92,8 +110,8 @@ exit()
     let type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
-    //  http://denyoappv2.stridecdev.com/unitlistaction?action=view&unitid=1,2&is_mobile=1&loginid=4
-      url: any = this.apiServiceURL + "/unitlistaction?action=view&unitid="+this.ulist+"&is_mobile=1&loginid="+this.userId;
+      //  http://denyoappv2.stridecdev.com/unitlistaction?action=view&unitid=1,2&is_mobile=1&loginid=4
+      url: any = this.apiServiceURL + "/unitlistaction?action=view&unitid=" + this.ulist + "&is_mobile=1&loginid=" + this.userId;
     let res;
     console.log(url);
     this.http.get(url, options)
@@ -150,7 +168,7 @@ exit()
       });
     this.presentLoading(0);
   }
-    doRefresh(refresher) {
+  doRefresh(refresher) {
     console.log('doRefresh function calling...');
     this.reportData.startindex = 0;
     this.reportAllLists = [];
@@ -159,7 +177,7 @@ exit()
       refresher.complete();
     }, 2000);
   }
-    presentLoading(parm) {
+  presentLoading(parm) {
     let loader;
     loader = this.loadingCtrl.create({
       content: "Please wait...",

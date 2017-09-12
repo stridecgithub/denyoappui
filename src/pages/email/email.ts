@@ -360,36 +360,40 @@ export class EmailPage {
   }
 
 
-  onSendSegmentChanged(val, item) {
-    if (this.sendData.status == '') {
-      this.sendData.status = "messages_id";
-    }
-    if (this.sendData.sort == '') {
-      this.sendData.sort = "messages_id";
-    }
+  onSendSegmentChanged(val) {
+    if (val != '') {
+      if (this.sendData.status == '') {
+        this.sendData.status = "messages_id";
+      }
+      if (this.sendData.sort == '') {
+        this.sendData.sort = "messages_id";
+      }
 
-    console.log('Send Item segment calling....');
-    let splitdata = val.split(",");
-    this.sendData.sort = splitdata[0];
-    this.sendData.sortascdesc = splitdata[1];
-    this.sendData.startindex = 0;
-    this.doSend();
+      console.log('Send Item segment calling....');
+      let splitdata = val.split(",");
+      this.sendData.sort = splitdata[0];
+      this.sendData.sortascdesc = splitdata[1];
+      this.sendData.startindex = 0;
+      this.doSend();
+    }
   }
 
 
   onSegmentChanged(val) {
-    if (this.inboxData.status == '') {
-      this.inboxData.status = "messages_id";
+    if (val != '') {
+      if (this.inboxData.status == '') {
+        this.inboxData.status = "messages_id";
+      }
+      if (this.inboxData.sort == '') {
+        this.inboxData.sort = "messages_id";
+      }
+      console.log('Inobox segment calling....');
+      let splitdata = val.split(",");
+      this.inboxData.sort = splitdata[0];
+      this.inboxData.sortascdesc = splitdata[1];
+      this.inboxData.startindex = 0;
+      this.doInbox();
     }
-    if (this.inboxData.sort == '') {
-      this.inboxData.sort = "messages_id";
-    }
-    console.log('Inobox segment calling....');
-    let splitdata = val.split(",");
-    this.inboxData.sort = splitdata[0];
-    this.inboxData.sortascdesc = splitdata[1];
-    this.inboxData.startindex = 0;
-    this.doInbox();
   }
 
   ionViewWillEnter() {
@@ -493,14 +497,16 @@ export class EmailPage {
             }*/
 
             const options: CameraOptions = {
-              quality: 75,
+              quality: 25,
               destinationType: this.camera.DestinationType.FILE_URI,
               sourceType: 1,
               // allowEdit: true,
               targetWidth: 200,
               targetHeight: 200,
+              saveToPhotoAlbum: true
               //encodingType: this.camera.EncodingType.JPEG,
               //saveToPhotoAlbum: true
+
             };
 
             this.camera.getPicture(options).then((uri) => {
@@ -780,7 +786,15 @@ export class EmailPage {
 
 
 
+  inb() {
+    this.inboxData.startindex = 0;
+    this.doInbox();
+  }
 
+  snd() {
+    this.sendData.startindex = 0;
+    this.doSend();
+  }
 
 
 
@@ -815,16 +829,16 @@ export class EmailPage {
   previous() {
     console.log("A" + this.act); // inbox
     console.log("B" + this.choice); // details
-    if (this.act == 'send'  && this.choice=='details') {
+    if (this.act == 'send' && this.choice == 'details') {
       this.choice = 'send';
       console.log("C" + this.choice);
-    } else if (this.act == 'inbox' && this.choice=='details') {
+    } else if (this.act == 'inbox' && this.choice == 'details') {
       console.log("D" + this.choice);
       this.choice = 'inbox';
-    } else if (this.act == 'inbox'  && this.choice=='inbox') {
+    } else if (this.act == 'inbox' && this.choice == 'inbox') {
       console.log("E" + this.choice);
       this.nav.setRoot(DashboardPage);
-    } else if (this.choice == 'send' && this.act == 'send'  ) {
+    } else if (this.choice == 'send' && this.act == 'send') {
       console.log("F" + this.choice);
       this.nav.setRoot(DashboardPage);
     } else {

@@ -136,7 +136,7 @@
 
           <span class="priorityicon"><img *ngIf="item.comment_resources" src="img/attach.png" hspace="10"/> <img src="img/low_priority.png" hspace="10" *ngIf="item.comment_priority=='1'" />
         <img src="img/high_priority.png" hspace="10" *ngIf="item.comment_priority=='2'" /></span>
-          <h6 style="float:right;margin-left: 200px;">{{item.comment_date}}</h6>
+          <h6 style="float:right;margin-left: 200px;">{{item.comment_date_formatted}}</h6>
         </ion-item>
       </ion-item>
       <ion-item style="float:left;" *ngIf="item.event_type=='R'">

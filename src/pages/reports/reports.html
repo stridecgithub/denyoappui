@@ -150,7 +150,7 @@
 
 
 
-  <button class="add-new-btn" ion-button [disabled]="!form.valid" value="3" onmouseup="getButton('3')">
+  <button class="add-new-btn" ion-button [disabled]="!form.valid   || isSubmitted" value="3" onmouseup="getButton('3')">
   	<div class="algn-cent">
     	<ion-icon name="list"></ion-icon>
         <span>PDF Viewer</span>

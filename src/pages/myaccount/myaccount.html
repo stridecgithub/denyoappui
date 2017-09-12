@@ -34,8 +34,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-  <ion-title  style="    text-align: center;
-    margin-top: 10px;"    class="page-title">{{pageTitle}}</ion-title>
+  <ion-title style="    text-align: center;
+    margin-top: 10px;" class="page-title">{{pageTitle}}</ion-title>
 
   <button style="float:left" ion-button (click)="notification()" style="position: absolute;
     right: 0%;
@@ -82,44 +82,44 @@
     font-size: 12pt;">{{permissionMessage}}</p>
 </ion-content>
 <ion-content padding class="ion-content" *ngIf="VIEWACCESS==1">
+ <div>
+    <div style="float: left;width:70px">
   <div>
-    <div style="float: left">
-  <div>
- <img src="img/myac.png" style="width : 25% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+ <img src="img/myac.png" style="width : 25% ; height : 50%;margin-right:10px;margin-left:9px;" ng-click="nextpage()" >
   </div>
   <div>
- <ion-label style="    font-size: 10px;">My Account</ion-label>
-  </div>
-    </div>
-     <div style="float: left;" (click)="user()">
-  <div>
- <img src="img/us.png" style="width : 25% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
-  </div>
-  <div>
- <ion-label style=" margin-left: 5px;   font-size: 10px;">User List</ion-label>
+ <ion-label style="    font-size: 8px;">My Account</ion-label>
   </div>
     </div>
-    <div style="float: left;" (click)="cgroup()">
+     <div style="float: left;width:70px" (click)="user()">
+  <div>
+ <img src="img/us.png" style="width : 25% ; height : 50%;margin-right:15px;margin-left:9px" ng-click="nextpage()" >
+  </div>
+  <div>
+ <ion-label style=" margin-left: 5px;   font-size: 8px;">User List</ion-label>
+  </div>
+    </div>
+    <div style="float: left;width:70px" (click)="cgroup()">
   <div style="    margin-left: 5px;">
- <img src="img/mycg.png" style="width : 30% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+ <img src="img/mycg.png" style="width : 25% ; height : 50%;margin-right:15px;margin-left:9px" ng-click="nextpage()" >
   </div>
   <div>
- <ion-label style="    font-size: 10px;">Company Group</ion-label>
+ <ion-label style="    font-size: 8px;">Company Group</ion-label>
   </div>
     </div>
-    <div style="float: left;   margin-left: -7px;" (click)="urole()">
+    <div style="float: left;;width:70px;   margin-left: 5px;" (click)="urole()">
   <div>
- <img src="img/ur.png" style="width : 25% ; height : 50%;margin-right:15px;" ng-click="nextpage()" >
+ <img src="img/ur.png" style="width : 25% ; height : 50%;margin-right:15px;margin-left:9px" ng-click="nextpage()" >
   </div>
   <div>
- <ion-label style="    font-size: 10px;">User Role</ion-label>
+ <ion-label style="    font-size: 8px;">User Role</ion-label>
   </div>
     </div>
   </div>
   <div>
-          <button (click)="orgchart()" style="float:left;width:50%;height:40px">View Org Chart</button>
-           <button (click)="report()"style="float:left;width:50%;height:40px">Report Template</button>
-        </div>
+    <button (click)="orgchart()" style="float:left;width:50%;height:40px">View Org Chart</button>
+    <button (click)="report()" style="float:left;width:50%;height:40px">Report Template</button>
+  </div>
 
   <div class="div-alignmnt">
     <ion-item>
@@ -146,8 +146,8 @@
 
   <div class="div-alignmnt"> <b>Country:</b> {{country}}</div>
 
-  <div class="div-alignmnt"> <b>Job Position:</b> {{job_position}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="viewOrgChart()" href="#" >View in Org Chart</a></div>
-  
+  <div class="div-alignmnt"> <b>Job Position:</b> {{job_position}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a (click)="viewOrgChart()" href="#">View in Org Chart</a></div>
+
   <button ion-button color="greenm" text-center block (click)="doEdit(userId)" *ngIf="EDITACCESS==1">Edit Profile</button>
 </ion-content>
 

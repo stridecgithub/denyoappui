@@ -137,7 +137,7 @@ export class NotificationPage {
       });
     } else if (nottype == 'E') {
       this.nav.setRoot(CalendardetailPage, {
-          record: item.table_id,
+          event_id: item.table_id,
         act: 'Push'
       });
     } else if (nottype == 'S') {

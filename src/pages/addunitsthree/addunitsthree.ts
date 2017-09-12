@@ -15,7 +15,7 @@ import { MapsPage } from '../maps/maps';
 import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
-import { OrgchartPage} from '../orgchart/orgchart';
+import { OrgchartPage } from '../orgchart/orgchart';
 /**
  * Generated class for the AddcompanygroupPage page.
  *
@@ -139,7 +139,7 @@ export class AddunitsthreePage {
     }
   }
 
-   getPrimaryContact2(ev) {
+  getPrimaryContact2(ev) {
     console.log(ev.target.value);
     let char = ev.target.value.toString();
     if (char.length > 5) {
@@ -151,7 +151,7 @@ export class AddunitsthreePage {
     }
   }
 
-   getPrimaryContact3(ev) {
+  getPrimaryContact3(ev) {
     console.log(ev.target.value);
     let char = ev.target.value.toString();
     if (char.length > 5) {
@@ -163,7 +163,7 @@ export class AddunitsthreePage {
     }
   }
 
-   getPrimaryContact4(ev) {
+  getPrimaryContact4(ev) {
     console.log(ev.target.value);
     let char = ev.target.value.toString();
     if (char.length > 5) {
@@ -176,7 +176,7 @@ export class AddunitsthreePage {
   }
 
 
-   getPrimaryContact5(ev) {
+  getPrimaryContact5(ev) {
     console.log(ev.target.value);
     let char = ev.target.value.toString();
     if (char.length > 5) {
@@ -190,13 +190,12 @@ export class AddunitsthreePage {
   // Determine whether we adding or editing a record
   // based on any supplied navigation parameters
   ionViewWillEnter() {
-    
-this.pageLoad();
+
+    this.pageLoad();
 
 
   }
-  pageLoad()
-  {
+  pageLoad() {
     let //body: string = "loginid=" + this.userId,
       type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
@@ -252,7 +251,7 @@ this.pageLoad();
           if (i == 1 && contactName != '') {
             this.cont2 = true;
             this.contact_name_2 = contactName;
-             this.contact_number_2 = contactNumber;
+            this.contact_number_2 = contactNumber;
 
             if (this.contact_number_2 != undefined) {
               let contactSplitSpace = this.contact_number_2.split(" ");
@@ -305,6 +304,10 @@ this.pageLoad();
     else {
       this.isEdited = false;
       this.pageTitle = 'New  Units';
+      if (localStorage.getItem("atMentionResult") != '') {
+        this.alarmhashtags = localStorage.getItem("atMentionResult");
+      }
+
     }
 
 
@@ -370,8 +373,7 @@ this.pageLoad();
   // supplies a variable of key with a value of create followed by the key/value pairs
   // for the record data
   createEntry(alarmhashtags, contactInfo, createdby) {
-
-
+    // this.alarmhashtags = localStorage.setItem("alarmhashtags", alarmhashtags);
 
     this.userInfo.push({
       alarmhashtags: alarmhashtags,

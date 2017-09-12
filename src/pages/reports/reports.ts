@@ -33,6 +33,7 @@ export class ReportsPage {
   public notcount: any;
   public from: any;
   public to: any;
+  public isSubmitted: boolean = false;
   public responseTemplate: any;
   public responseUnit: any;
   public companyId: any;
@@ -207,6 +208,10 @@ export class ReportsPage {
 
   getFormat(format) {
     console.log(format);
+    this.isSubmitted = false;
+    if (format == 'graph') {
+      this.isSubmitted = true;
+    }
     this.exportto = format;
   }
 

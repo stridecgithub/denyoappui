@@ -205,7 +205,7 @@ export class CommentdetailsPage {
     this.comment_priority = item.comment_priority;
     this.comment_remark = item.comment_remark;
     this.photo = item.user_photo;
-    this.cdate = item.comment_date + "(" + item.time_ago + ")";
+    this.cdate = item.comment_date_formatted + "(" + item.time_ago + ")";
     console.log("X" + this.comment_priority);
     if (this.comment_priority == "1") {
       this.service_priority_class1 = '';

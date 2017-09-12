@@ -14,7 +14,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Http, Headers, RequestOptions } from '@angular/http';
 //import { Http, Headers, RequestOptions } from '@angular/http';
 //import { HTTP } from '@ionic-native/http';
-import * as $ from 'jquery';
 import { MyaccountPage } from '../myaccount/myaccount';
 import { UnitsPage } from '../units/units';
 import { NotificationPage } from '../notification/notification';

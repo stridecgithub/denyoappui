@@ -237,6 +237,15 @@ export class UnitsPage {
 
   doAdd() {
     localStorage.setItem("location", '');
+     localStorage.setItem("atMentionResult", '');
+          localStorage.setItem("location", "");
+          localStorage.setItem("unitgroups_id", '');
+          localStorage.setItem("companys_id", '');
+          localStorage.setItem("unitname", '');
+          localStorage.setItem("projectname", '');
+          localStorage.setItem("controllerid", '');
+          localStorage.setItem("models_id", '');
+          localStorage.setItem("neaplateno", '');
     this.nav.setRoot(AddunitsonePage);
   }
   getCheckBoxValue(item, val) {
@@ -282,7 +291,7 @@ console.log(JSON.stringify(this.selectedAction));*/
         this.sendNotification("Please select Atleast One Unit")
       }
       else {
-        urlstr = "/unitlistaction?action=delete&unitid=" + this.str + "&is_mobile=1&loginid=" + this.userId;
+        urlstr = "/unitlistaction?action=delete&unitid="+this.str+"&is_mobile=1&loginid="+this.userId;
       }
     }
     if (actpet == 'viewdashboard') {
@@ -290,7 +299,7 @@ console.log(JSON.stringify(this.selectedAction));*/
         this.sendNotification("Please select Atleast One Unit")
       }
       else {
-        urlstr = "/unitlistaction?action=dashboard&unitid=" + this.str + "&is_mobile=1&loginid=" + this.userId
+        urlstr = "/unitlistaction?action=dashboard&unitid="+this.str+"&is_mobile=1&loginid="+this.userId
       }
     }
     if (actpet == 'view') {
@@ -311,11 +320,9 @@ console.log(JSON.stringify(this.selectedAction));*/
         localStorage.setItem("runninghr", item.runninghr);
         localStorage.setItem("nsd", item.nextservicedate);
 
-       /* 
-       restricted this page
-       this.nav.setRoot(UnitdetailsPage, {
+        this.nav.setRoot(UnitdetailsPage, {
           record: this.detailvalue
-        });*/
+        });
         return false;
       }
     }
@@ -372,10 +379,10 @@ console.log(JSON.stringify(this.selectedAction));*/
       console.log("RHR" + item.runninghr);
       localStorage.setItem("nsd", item.nextservicedate);
 
-      // restricted this page
-      /*this.nav.setRoot(UnitdetailsPage, {
+
+      this.nav.setRoot(UnitdetailsPage, {
         record: item
-      });*/
+      });
       return false;
     } else {
       this.nav.setRoot(ViewcompanygroupPage, {
@@ -427,8 +434,8 @@ console.log(JSON.stringify(this.selectedAction));*/
       type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
-      // url: any = this.apiServiceURL + "/units/" + recordID + "/1/delete";
-      url: any = this.apiServiceURL + "/unitlistaction?action=delete&unitid=" + recordID + "&is_mobile=1&loginid=" + this.userId;
+     // url: any = this.apiServiceURL + "/units/" + recordID + "/1/delete";
+       url: any = this.apiServiceURL + "/unitlistaction?action=delete&unitid="+recordID+"&is_mobile=1&loginid="+this.userId;
     this.http.get(url, options)
       .subscribe(data => {
         // If the request was successful notify the user

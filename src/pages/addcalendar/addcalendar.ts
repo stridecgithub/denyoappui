@@ -106,7 +106,24 @@ export class AddcalendarPage {
         time_name: am15plus+' AM',
       });
     }*/
-    this.responseResultTime.push({
+
+
+    /*
+       
+         let interval = 900; // Interval in seconds
+        let date_first = "06:00";
+        let date_second = "24:00";
+        let time_first = strtotime($date_first);
+        let time_second = strtotime($date_second);
+    
+        for ($i = $time_first; $i < $time_second; $i += $interval) {
+          ?>
+            <option value="{{date('g:i A', $i)}}" > <?php echo date('g:i A', $i)."<br />"; ?><?php
+         }
+      
+    */
+
+    this.responseResultTime.push(/*{
       id: '6.00AM',
       time_name: '6:00 AM',
     }, {
@@ -190,7 +207,81 @@ export class AddcalendarPage {
       }, {
         id: '11.45PM',
         time_name: '11:45 PM'
-      });
+      }*/
+
+      { id: '6:00 AM', time_name: '6:00 AM' }
+      , { id: '6:15 AM', time_name: '6:15 AM' }
+      , { id: '6:30 AM', time_name: '6:30 AM' }
+      , { id: '6:45 AM', time_name: '6:45 AM' }
+      , { id: '7:00 AM', time_name: '7:00 AM' }
+      , { id: '7:15 AM', time_name: '7:15 AM' }
+      , { id: '7:30 AM', time_name: '7:30 AM' }
+      , { id: '7:45 AM', time_name: '7:45 AM' }
+      , { id: '8:00 AM', time_name: '8:00 AM' }
+      , { id: '8:15 AM', time_name: '8:15 AM' }
+      , { id: '8:30 AM', time_name: '8:30 AM' }
+      , { id: '8:45 AM', time_name: '8:45 AM' }
+      , { id: '9:00 AM', time_name: '9:00 AM' }
+      , { id: '9:15 AM', time_name: '9:15 AM' }
+      , { id: '9:30 AM', time_name: '9:30 AM' }
+      , { id: '9:45 AM', time_name: '9:45 AM' }
+      , { id: '10:00 AM', time_name: '10:00 AM' }
+      , { id: '10:15 AM', time_name: '10:15 AM' }
+      , { id: '10:30 AM', time_name: '10:30 AM' }
+      , { id: '10:45 AM', time_name: '10:45 AM' }
+      , { id: '11:00 AM', time_name: '11:00 AM' }
+      , { id: '11:15 AM', time_name: '11:15 AM' }
+      , { id: '11:30 AM', time_name: '11:30 AM' }
+      , { id: '11:45 AM', time_name: '11:45 AM' }
+      , { id: '12:00 PM', time_name: '12:00 PM' }
+      , { id: '12:15 PM', time_name: '12:15 PM' }
+      , { id: '12:30 PM', time_name: '12:30 PM' }
+      , { id: '12:45 PM', time_name: '12:45 PM' }
+      , { id: '1:00 PM', time_name: '1:00 PM' }
+      , { id: '1:15 PM', time_name: '1:15 PM' }
+      , { id: '1:30 PM', time_name: '1:30 PM' }
+      , { id: '1:45 PM', time_name: '1:45 PM' }
+      , { id: '2:00 PM', time_name: '2:00 PM' }
+      , { id: '2:15 PM', time_name: '2:15 PM' }
+      , { id: '2:30 PM', time_name: '2:30 PM' }
+      , { id: '2:45 PM', time_name: '2:45 PM' }
+      , { id: '3:00 PM', time_name: '3:00 PM' }
+      , { id: '3:15 PM', time_name: '3:15 PM' }
+      , { id: '3:30 PM', time_name: '3:30 PM' }
+      , { id: '3:45 PM', time_name: '3:45 PM' }
+      , { id: '4:00 PM', time_name: '4:00 PM' }
+      , { id: '4:15 PM', time_name: '4:15 PM' }
+      , { id: '4:30 PM', time_name: '4:30 PM' }
+      , { id: '4:45 PM', time_name: '4:45 PM' }
+      , { id: '5:00 PM', time_name: '5:00 PM' }
+      , { id: '5:15 PM', time_name: '5:15 PM' }
+      , { id: '5:30 PM', time_name: '5:30 PM' }
+      , { id: '5:45 PM', time_name: '5:45 PM' }
+      , { id: '6:00 PM', time_name: '6:00 PM' }
+      , { id: '6:15 PM', time_name: '6:15 PM' }
+      , { id: '6:30 PM', time_name: '6:30 PM' }
+      , { id: '6:45 PM', time_name: '6:45 PM' }
+      , { id: '7:00 PM', time_name: '7:00 PM' }
+      , { id: '7:15 PM', time_name: '7:15 PM' }
+      , { id: '7:30 PM', time_name: '7:30 PM' }
+      , { id: '7:45 PM', time_name: '7:45 PM' }
+      , { id: '8:00 PM', time_name: '8:00 PM' }
+      , { id: '8:15 PM', time_name: '8:15 PM' }
+      , { id: '8:30 PM', time_name: '8:30 PM' }
+      , { id: '8:45 PM', time_name: '8:45 PM' }
+      , { id: '9:00 PM', time_name: '9:00 PM' }
+      , { id: '9:15 PM', time_name: '9:15 PM' }
+      , { id: '9:30 PM', time_name: '9:30 PM' }
+      , { id: '9:45 PM', time_name: '9:45 PM' }
+      , { id: '10:00 PM', time_name: '10:00 PM' }
+      , { id: '10:15 PM', time_name: '10:15 PM' }
+      , { id: '10:30 PM', time_name: '10:30 PM' }
+      , { id: '10:45 PM', time_name: '10:45 PM' }
+      , { id: '11:00 PM', time_name: '11:00 PM' }
+      , { id: '11:15 PM', time_name: '11:15 PM' }
+      , { id: '11:30 PM', time_name: '11:30 PM' }
+      , { id: '11:45 PM', time_name: '11:45 PM' }
+    );
     let dateStr = new Date();
 
 
@@ -217,7 +308,8 @@ export class AddcalendarPage {
 
 
 
-    this.event_date = dateStr.getFullYear() + "-" + this.month1 + "-" + this.date1;
+    // this.event_date = dateStr.getFullYear() + "-" + this.month1 + "-" + this.date1;
+    this.event_date = localStorage.getItem("eventDate");
     console.log("Bottom UTC Format Current Date:" + this.event_date);
 
   }

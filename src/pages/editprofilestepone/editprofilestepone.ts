@@ -1,17 +1,13 @@
-import { Component, NgZone } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import { EditprofilesteptwoPage } from '../editprofilesteptwo/editprofilesteptwo';
 import { Camera, CameraOptions } from '@ionic-native/camera';
-import { UserPage } from '../user/user';
-import { UnitgroupPage } from '../unitgroup/unitgroup';
-import { RolePage } from '../role/role';
 import { MyaccountPage } from '../myaccount/myaccount';
 import { UnitsPage } from '../units/units';
 import { NotificationPage } from '../notification/notification';
 import { MapsPage } from '../maps/maps';
-import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
 import { OrgchartPage} from '../orgchart/orgchart';
@@ -269,7 +265,8 @@ pageLoad()
     this.isUploadedProcessing = true;
     const options: CameraOptions = {
       quality: 25,
-      destinationType: this.camera.DestinationType.FILE_URI
+      destinationType: this.camera.DestinationType.FILE_URI,
+      saveToPhotoAlbum: true
     }
     this.camera.getPicture(options).then((imageData) => {
       localStorage.setItem("userPhotoFile", imageData);

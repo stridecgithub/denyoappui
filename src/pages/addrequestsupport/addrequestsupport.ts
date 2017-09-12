@@ -170,8 +170,9 @@ export class AddrequestsupportPage {
   takePictureURL(micro_timestamp) {
     this.isUploadedProcessing = true;
     const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.FILE_URI
+      quality: 25,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      saveToPhotoAlbum: true
     }
     this.camera.getPicture(options).then((imageData) => {
       console.log(imageData);

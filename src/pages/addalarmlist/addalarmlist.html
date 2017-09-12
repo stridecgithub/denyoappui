@@ -12,8 +12,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-  <ion-title  style="    text-align: center;
-    margin-top: 10px;"    class="page-title">Alarm</ion-title>
+  <ion-title style="    text-align: center;
+    margin-top: 10px;" class="page-title">Add/Edit Alarm</ion-title>
 
   <button style="float:left" ion-button (click)="notification()" style="position: absolute;
     right: 0%;
@@ -51,7 +51,7 @@
       Login As:{{loginas}}
     </ion-buttons>
   </ion-navbar>
- 
+
 
 
 </ion-header>
@@ -60,7 +60,7 @@
 <ion-content padding>
   <div>
     <form [formGroup]="form" (ngSubmit)="saveEntry()">
-       <ion-item>
+      <ion-item>
         <button class="{{unitDetailData.colorcodeindications}}" style="float: left ;width:8px;height:85px">         
         </button>
 
@@ -90,12 +90,20 @@
           <ion-option *ngFor="let userData of responseResultReportTo" value="{{userData.staff_id}}">{{userData.firstname}} {{userData.lastname}}</ion-option>
         </ion-select>
       </ion-item>
-      <div>
+
+      <br>
+      <b>Remark</b> <span class="mandatory" *ngIf="hideActionButton">*</span>
+      <textarea style="height:70px" type="text" (keyup)=address1get($event.target.value); name="to" id="to" class="sugges" onkeyup="sptions(event);address1get(this.value)"
+        onblur="sptionshide();address1get(this.value)" class="form-control" rows="8" [disabled]="readOnly" formControlName="remark"
+        [(ngModel)]="remark"></textarea>
+
+
+      <!--div>
         <ion-label stacked>Remark</ion-label>
         <ion-textarea (keyup)=address1get($event.target.value); name="to" id="to" class="sugges" onkeyup="sptions(event);address1get(this.value)"
         onblur="sptionshide();address1get(this.value)" rows="6" type="text" [disabled]="readOnly" formControlName="remark" [(ngModel)]="remark"></ion-textarea>
 
-      </div>
+      </div-->
       <ion-item>
         <button ion-button color="primary" text-center [disabled]="!form.valid || isSubmitted">Complete and Save</button>
       </ion-item>
@@ -128,11 +136,11 @@
     	<ion-icon name="bicycle" class="footer-icon">CALENDAR</ion-icon>
     </button>
       </li>
-     <li>    
-    <button style=" width: 34px;" ion-button icon-only (click)="redirectToSettings()" clear>
+      <li>
+        <button style=" width: 34px;" ion-button icon-only (click)="redirectToSettings()" clear>
     	<ion-icon name="settings" class="footer-icon">ORG</ion-icon>
     </button>
-</li> 
+      </li>
     </ul>
 
   </ion-toolbar>

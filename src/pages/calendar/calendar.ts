@@ -590,7 +590,7 @@ export class CalendarPage {
 
         this.alarmIdentity = res.allalarms;
         for (var k = 0; k < this.alarmIdentity.length; k += 1) {
-         // $('.monthview-primary-with-event').removeClass('monthview-primary-with-event[_ngcontent-c1]');
+          // $('.monthview-primary-with-event').removeClass('monthview-primary-with-event[_ngcontent-c1]');
           //$('.monthview-primary-with-event').addClass('eventclass');
           var startTime;
           var endTime;
@@ -671,7 +671,7 @@ export class CalendarPage {
     return monthYear;
   }
   callingSwipe($event) {
-    console.log('swiped callendar' + JSON.stringify($event));
+    /*console.log('swiped callendar' + JSON.stringify($event));
     console.log("offsetDirection Left is 4 is from left to right=" + $event.offsetDirection);
     console.log("offsetDirection Left is 2 is right to left=" + $event.offsetDirection);
     if ($event.offsetDirection == 2) {
@@ -680,7 +680,7 @@ export class CalendarPage {
     if ($event.offsetDirection == 4) {
       this.calendarComponent.plusMonth(-1);
     }
-
+*/
 
   }
 

@@ -4127,7 +4127,7 @@ border:3px solid lightcoral;
 ion-item-sliding{border-bottom: 1px solid #ccc;}
 .item-md{color:#333;padding:0;}
 .item-md h2{margin:10px 0;}
-.label-md b{width:40%;display:inline-block;}
+.label-md b{/*width:40%;*/display:inline-block;}
 ion-navbar ion-buttons{margin-right:15px;}
 .add-new-btn{padding: 10px;text-align: center;}
 .algn-cent{margin:0 auto;display:table;}
@@ -5175,6 +5175,12 @@ ion-navbar ion-buttons{margin-right:15px;}
  {
      background-image:url('../img/fr.png');background-size:cover;
  }
+
+ .select-md .select-icon {
+    position: relative;
+    width: 16px;
+    height: 19px;
+}
 }
 
 
@@ -6341,8 +6347,16 @@ ion-navbar ion-buttons{margin-right:15px;}
 
 //orgchart
 
-
+.ion-popover{
+    position: absolute;
+    margin-top: -377px;
+    margin-left: 3px;
+}
 page-orgchart {
+
+
+
+
      .ion-md-settings{background:url(../img/oc.png) no-repeat center top;}
     
 .scroll-content{overflow-x: auto;}
@@ -9348,5 +9362,18 @@ ionic2-calendar {
     color: grey;
     background: white;
   }
+}
+
+.ion-md-trash:before {
+    color: white;
+}
+
+.ion-md-arrow-dropright:before {  
+    color: white;
+    font-size: 55px;
+}
+.error{
+    color:red;
+    text-align: center;
 }
 

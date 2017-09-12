@@ -46,8 +46,8 @@ export class ServicinginfoPage {
   public reportData: any =
   {
     status: '',
-    sort: 'companygroup_id',
-    sortascdesc: 'asc',
+    sort: 'service_id',
+    sortascdesc: 'desc',
     startindex: 0,
     results: 50
   }

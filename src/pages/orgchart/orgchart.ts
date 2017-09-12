@@ -16,8 +16,6 @@ import { PopoverPage } from '../popover/popover';
 
 import { EmailPage } from '../email/email';
 import { PopoverController } from 'ionic-angular';
-//import * as $ from 'jquery';
-//import "slick-carousel";
 /**
  * Generated class for the UnitgroupPage page.
  *

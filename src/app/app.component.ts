@@ -11,7 +11,6 @@ import { Unitgrouplist } from '../pages/unitgrouplist/unitgrouplist';
 import { CompanygroupPage } from '../pages/companygroup/companygroup';
 import { CompanydetailPage } from '../pages/companydetail/companydetail';
 import { UserPage } from '../pages/user/user';
-import { EnginedetailviewPage } from '../pages/enginedetailview/enginedetailview';
 import { MyaccountPage } from '../pages/myaccount/myaccount';
 import { UnitgroupPage } from '../pages/unitgroup/unitgroup';
 import { RolePage } from '../pages/role/role';
@@ -34,10 +33,7 @@ import { EnginedetailPage } from '../pages/enginedetail/enginedetail';
 import { EmailPage } from '../pages/email/email';
 import { EngineviewPage } from '../pages/engineview/engineview';
 import { ForgotpasswordPage } from '../pages/forgotpassword/forgotpassword';
-//import { TrendlinePage } from '../pages/trendline/trendline';
 import { DataServiceProvider } from '../providers/data-service/data-service';
-import { ViewunitsPage } from '../pages/viewunits/viewunits';
-
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Network } from '@ionic-native/network';
 import { LocalNotifications } from '@ionic-native/local-notifications';

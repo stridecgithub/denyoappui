@@ -189,7 +189,7 @@
 
 
 .alarm_service_event{
-background:url('../img/alarm_service_event.png') no-repeat center;
+background:url(../img/alarm_event_service.png) center no-repeat;
 }
 .alarm_service{
 background:url('../img/alarm_service.png') no-repeat center;
@@ -210,6 +210,15 @@ background:url('../img/service.png') no-repeat center;
 background:url('../img/event.png') no-repeat center;
 }
 
+
+
 .currentDataHighlights{
-background-color:#3C91B9;color:white
+  background-color:#3C91B9;color:white;
 }
+.date-grid-block{
+  background-color: #fff;
+    color: #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+

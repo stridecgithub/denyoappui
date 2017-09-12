@@ -28,11 +28,11 @@
         {{wd}}
       </div>
       <!-- Data attribute idx should be enough, cause then we can retrieve the date, etc from the idx... -->
-       <!-- [ngClass]="{'out-of-current-month': (d.date.isBefore(ctrl.monthView.firstDayOfMonth) || d.date.isAfter(ctrl.monthView.lastDayOfMonth))}"
+      <!-- [ngClass]="{'out-of-current-month': (d.date.isBefore(ctrl.monthView.firstDayOfMonth) || d.date.isAfter(ctrl.monthView.lastDayOfMonth))}"
        -->
-      <button class="ionic2-cal-item {{(d.date.year() == currentYear) && (d.date.month() == currentMonth) && (d.date.date() == currentDate) ? 'currentDataHighlights' : ''}}" [attr.data-idx]="i" [attr.data-dayofmonth]="d.date.date()"
-        [attr.data-month]="d.date.month()" [attr.data-year]="d.date.year()" [id]="'month-grid-day-' + i" *ngFor="let d of ctrl.monthView.days; let i = index"
-       (tap)="selectDate(d, $event)" (press)="monthDayGridCellOnPress(d, $event)">
+      <button class="ionic2-cal-item {{(d.date.year() == currentYear) && (d.date.month()+1 == currentMonth) && (d.date.date() == currentDate) ? 'currentDataHighlights' : 'date-grid-block'}}"
+        [attr.data-idx]="i" [attr.data-dayofmonth]="d.date.date()" [attr.data-month]="d.date.month()+1" [attr.data-year]="d.date.year()"
+        [id]="'month-grid-day-' + i" *ngFor="let d of ctrl.monthView.days; let i = index" (tap)="selectDate(d, $event)" (press)="monthDayGridCellOnPress(d, $event)">
             <ul class="event-list" [dragula]='"first-bag"' [dragulaModel]='d.events'>
         <button 
           class="event-list-item 
@@ -45,73 +45,57 @@
           [id]="e.id"
           (tap)="eventOnClick(e, $event)"
           (press)="eventOnPress(e, $event)">
-          <span *ngIf="e.startDate.getDate() === d.date.date()" class="ionic2-event-time">{{e.startDate | date:"HH:mm"}}: </span>
-          <!--span *ngIf="e.startDate.getDate() !== d.date.date()">...</span--> 
-          <!--<i [ngClass]="e?.icon"></i>-->
-          <!--ion-icon [name]="e?.icon" [ngStyle]="e.iconStyle"></ion-icon-->
 
-         <!-- {{e.eventlength}} 
-          {{e.servicelength}} 
-          {{e.alarmlength}}-->
-<!--{{e.startDate.getDate()}}
-{{d.date.date()}}-->
-<!--Cut-->
-           <!--span class="event-continued-ellipsis" *ngIf="e.eventlength>0" style="font-size:32pt;color:rgb(91,192,220);">&nbsp;</span>
 
-            <span class="event-continued-ellipsis" *ngIf="e.servicelength>0"  style="font-size:32pt;color:rgb(65,139,200);">&nbsp;</span>
+           <!--p *ngFor="let h of highlighteddata; let i = index" class="{{currentDate == d.date.date() ? 'currentDataHighlights' : ''}}">
+        <span class="{{h.class}}" *ngIf="h.class=='alarm_service' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(63,139,197);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
 
-             <span class="event-continued-ellipsis" *ngIf="e.alarmlength>0"  style="font-size:32pt;color:rgb(239,173,77);">&nbsp;</span-->
+        <span class="{{h.class}}" *ngIf="h.class=='service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='alarm' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:#ECAE4B;" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='service' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(63,139,197);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='alarm_service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(63,139,197);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='alarm_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+      </p-->
 
-          <!--span class="event-name" [ngClass]="e?.class" [ngStyle]="e?.style"> {{e.name}}</span-->
-          <!--span class="event-continued-ellipsis" *ngIf="e.endDate.getDate() !== d.date.date()">...</span-->
-        </button>
+         </button>
       </ul>
 
       <p *ngFor="let h of highlighteddata; let i = index" class="{{currentDate == d.date.date() ? 'currentDataHighlights' : ''}}">
-        <!--Date:{{h.date}}
-  Calendar Date: {{d.date.year()}} - {{d.date.month()}} -{{d.date.date()}}
-  Highlighted date:{{h.date}}
-  Highlighted class:{{h.class}}-->
-        <!-- 1 Alarm , Service and Events alarm_service_event --  >      
-<span class="{{h.class}}" *ngIf="h.class=='alarm_service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1" style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span><!-- Event-->
-        <!-- <span class="{{h.class}}" *ngIf="h.class=='alarm_service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1"  style="font-size:32pt;color:rgb(63,139,197);"></span>Service-->
-        <!-- <span class="{{h.class}}" *ngIf="h.class=='alarm_service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1"style="font-size:32pt;color:#ECAE4B;"></span>Alarm-->
-        <!-- 1 Alarm , Service and Events-->
-        <!-- 2 Alarm and Service alarm_service -->
-        <span class="{{h.class}}" *ngIf="h.class=='alarm_service' && h.dte==d.date.date()  && h.mne==d.date.month()+1" style="font-size:32pt;color:rgb(63,139,197);"
-          (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span>
-        <!-- Service-->
-        <!-- <span class="{{h.class}}" *ngIf="h.class=='alarm_service' && h.dte==d.date.date()  && h.mne==d.date.month()+1"style="font-size:32pt;color:#ECAE4B;"></span>Alarm-->
-        <!-- 2 Alarm and Service-->
-        <!-- 3 Alarm and Event alarm_event --  >
-<span class="{{h.class}}" *ngIf="h.class=='alarm_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1" style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span><!-- Event-->
-        <!-- <span class="{{h.class}}" *ngIf="h.class=='alarm_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1"style="font-size:32pt;color:#ECAE4B;"></span>Alarm-->
-        <!-- 3  Alarm and Event -->
-        <!-- 4 Event and Service-->
-        <span class="{{h.class}}" *ngIf="h.class=='service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1" style="font-size:32pt;color:rgb(90,192,217);"
-          (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span>
-        <!-- Event-->
-        <!-- <span class="{{h.class}}" *ngIf="h.class=='service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1"  style="font-size:32pt;color:rgb(63,139,197);"></span>Service-->
-        <!-- 4 Event and Service-->
-        <!--{{d.date.year()-d.date.month()-d.date.date()}}-->
-        <!-- 5 Alarm Only-->
-        <span class="{{h.class}}" *ngIf="h.class=='alarm' && h.dte==d.date.date()  && h.mne==d.date.month()+1" style="font-size:32pt;color:#ECAE4B;"
-          (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span>
-        <!-- Alarm-->
-        <!-- 5 Alarm Only-->
-        <!-- 6 Service Only-->
-        <span class="{{h.class}}" *ngIf="h.class=='service' && h.dte==d.date.date()  && h.mne==d.date.month()+1" style="font-size:32pt;color:rgb(63,139,197);"
-          (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span>
-        <!-- Service-->
-        <!-- 6 Service Only-->
-        <!-- 7  Event Only-->
-        <span class="event-continued-ellipsis" *ngIf="h.class=='event' && h.dte==d.date.date()  && h.mne==d.date.month()+1  && h.mne==d.date.month()+1"
-          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">&nbsp;</span>
-        <!-- Event-->
-        <!-- 7 Event Only-->
+        <span class="{{h.class}}" *ngIf="h.class=='alarm_service' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(63,139,197);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+
+        <span class="{{h.class}}" *ngIf="h.class=='service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='alarm' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:#ECAE4B;" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='service' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(63,139,197);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='alarm_service_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(63,139,197);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
+        <span class="{{h.class}}" *ngIf="h.class=='alarm_event' && h.dte==d.date.date()  && h.mne==d.date.month()+1 && h.yrd==d.date.year()"
+          style="font-size:32pt;color:rgb(90,192,217);" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')">&nbsp;</span>
       </p>
-      <span class="ionic2-cal-day-of-month {{currentDate == d.date.date() ? 'currentDataHighlights' : ''}}" *ngIf="currentDate != d.date.date()" (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">{{d.date.date()}}</span>
-      <span class="ionic2-cal-day-of-month {{currentDate == d.date.date() ? 'currentDataHighlights' : ''}}" *ngIf="currentDate == d.date.date()" (click)="onTimeSelected(d.date.year(),d.date.month(),d.date.date(),'1')">{{d.date.date()}}</span>
+      <span class="ionic2-cal-day-of-month {{currentDate == d.date.date() ? 'currentDataHighlights' : ''}}" *ngIf="currentDate != d.date.date()"
+        (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')" style="position: absolute;
+    top: 4px;
+    left: 11px;">{{d.date.date()}}</span>
+      <span class="ionic2-cal-day-of-month {{currentDate == d.date.date() && currentMonth == d.date.month() ? 'currentDataHighlights' : ''}}"
+        *ngIf="currentDate == d.date.date()" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')" style="position: absolute;
+    top: 4px;
+    left: 11px;background-color: #3C91B9;color: white;">{{d.date.date()}}</span>
+
+
+
 
       </button>
     </div>
@@ -173,7 +157,7 @@
           <ion-item *ngIf="item.event_type=='E'  && EVENTVIEWACCESS=='1'">
             <div>
 
-              <h2 clear item-right><b>{{item.event_title}}  </b></h2>
+              <h2 clear item-right><b>Event:  </b>{{item.event_title}}</h2>
             </div>
             <div>Date & Time:{{item.formatted_datetime}}</div>
             <div style="white-space: normal">Location:{{item.event_location}}</div>
@@ -198,9 +182,9 @@
           <ion-item *ngIf="item.event_type=='S' && SERVICEVIEWACCESS=='1'">
 
             <div>
-
-              <h2 clear item-right><b>Subject:{{item.event_title}}  </b></h2>
-            </div>
+              <h2 clear item-right><b>Service: </b >{{item.event_title}}</h2>
+            </div>   
+            <div>{{item.unitname}}</div>         
             <div>Date & Time:{{item.formatted_datetime}}</div>
             <div style="white-space: normal">Location:{{item.event_location}}</div>
             <div style="white-space: normal">Remarks:{{item.event_remark}}</div>
@@ -224,10 +208,11 @@
     font-size: 12pt;">{{permissionMessage}}</p>
           </ion-item>
           <ion-item *ngIf="item.event_type=='A' && ALARMVIEWACCESS=='1'">
-
+  
             <div>
-              <h2 clear item-right><b>Alarm:{{item.event_title}}  </b></h2>
+              <h2 clear item-right><b>Alarm: </b> {{item.event_title}}</h2>
             </div>
+            <div>{{item.unitname}}</div>
             <div>Date & Time:{{item.formatted_datetime}}</div>
             <div style="white-space: normal">Location:{{item.event_location}}</div>
             <div style="white-space: normal">Remarks:{{item.event_remark}}</div>

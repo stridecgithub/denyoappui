@@ -15,7 +15,7 @@ import { MapsPage } from '../maps/maps';
 import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
-import { OrgchartPage} from '../orgchart/orgchart';
+import { OrgchartPage } from '../orgchart/orgchart';
 /**
  * Generated class for the AddcompanygroupPage page.
  *
@@ -43,8 +43,8 @@ export class AddunitstwoPage {
 
   public responseResultModel: any;
   progress: number;
-  public msgcount:any;
-  public notcount:any;
+  public msgcount: any;
+  public notcount: any;
   public isProgress = false;
   public isUploaded: boolean = true;
   // Flag to be used for checking whether we are adding/editing an entry
@@ -85,29 +85,28 @@ export class AddunitstwoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddunitsonePage');
-     this.pageLoad();
+    this.pageLoad();
   }
 
   // Determine whether we adding or editing a record
   // based on any supplied navigation parameters
   ionViewWillEnter() {
-   this.pageLoad();
-    }
-pageLoad()
-{
+    this.pageLoad();
+  }
+  pageLoad() {
     let //body: string = "loginid=" + this.userId,
       type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
       url: any = this.apiServiceURL + "/msgnotifycount?loginid=" + this.userId;
     console.log(url);
-   // console.log(body);
+    // console.log(body);
 
     this.http.get(url, options)
       .subscribe((data) => {
         console.log("Count Response Success:" + JSON.stringify(data.json()));
-       this.msgcount=data.json().msgcount;
-        this.notcount=data.json().notifycount;
+        this.msgcount = data.json().msgcount;
+        this.notcount = data.json().notifycount;
       });
     this.resetFields();
     this.getJsonModelListData();
@@ -133,6 +132,24 @@ pageLoad()
     else {
       this.isEdited = false;
       this.pageTitle = 'New  Units';
+
+      if (localStorage.getItem("unitname")) {
+        this.unitname = localStorage.getItem("unitname");
+      }
+      if (localStorage.getItem("projectname")) {
+        this.projectname = localStorage.getItem("projectname");
+      }
+      if (localStorage.getItem("controllerid")) {
+        this.controllerid = localStorage.getItem("controllerid");
+      }
+      if (localStorage.getItem("models_id")) {
+        this.models_id = localStorage.getItem("models_id");
+      }
+      if (localStorage.getItem("neaplateno")) {
+        this.neaplateno = localStorage.getItem("neaplateno");
+      }
+
+      localStorage.setItem("location", this.location);
     }
 
 
@@ -175,7 +192,7 @@ pageLoad()
          console.log("User Information:" + JSON.stringify(this.userInfo));
          */
       }
-}
+    }
 
     //Static Storage
     /*let data = [
@@ -248,28 +265,26 @@ pageLoad()
         if (data.status === 200) {
           console.log(JSON.stringify(data.json()));
           this.hideForm = true;
-          if(res.msg[0].Error == '1')
-          {
-          this.sendNotification(res.msg[0].result);
-        }
-        else
-        {
- this.userInfo.push({
-      unitname: unitname,
-      projectname: projectname,
-      controllerid: controllerid,
-      models_id: models_id,
-      neaplateno: neaplateno,
-      createdby: createdby,
-      location: this.location,
-      latitude: this.latitude,
-      longitude: this.longitude
-    });
-    this.nav.setRoot(AddunitsthreePage, {
-      accountInfo: this.userInfo,
-      record: this.NP.get("record")
-    });
-        }
+          if (res.msg[0].Error == '1') {
+            this.sendNotification(res.msg[0].result);
+          }
+          else {
+            this.userInfo.push({
+              unitname: unitname,
+              projectname: projectname,
+              controllerid: controllerid,
+              models_id: models_id,
+              neaplateno: neaplateno,
+              createdby: createdby,
+              location: this.location,
+              latitude: this.latitude,
+              longitude: this.longitude
+            });
+            this.nav.setRoot(AddunitsthreePage, {
+              accountInfo: this.userInfo,
+              record: this.NP.get("record")
+            });
+          }
         }
         // Otherwise let 'em know anyway
         else {
@@ -278,7 +293,7 @@ pageLoad()
       });
     // If Controller Id Check Unique
 
-   
+
   }
 
 
@@ -292,7 +307,7 @@ pageLoad()
 
     // If Controller Id Check Unique
     let
-      body: string = "unit_id="+this.NP.get("record").unit_id+"&controllerid=" + controllerid,
+      body: string = "unit_id=" + this.NP.get("record").unit_id + "&controllerid=" + controllerid,
       type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
@@ -306,28 +321,26 @@ pageLoad()
         if (data.status === 200) {
           console.log(JSON.stringify(data.json()));
           this.hideForm = true;
-          if(res.msg[0].Error == '1')
-          {
-          this.sendNotification(res.msg[0].result);
-        }
-        else
-        {
- this.userInfo.push({
-      unitname: unitname,
-      projectname: projectname,
-      controllerid: controllerid,
-      models_id: models_id,
-      neaplateno: neaplateno,
-      createdby: createdby,
-      location: this.location,
-      latitude: this.latitude,
-      longitude: this.longitude
-    });
-    this.nav.setRoot(AddunitsthreePage, {
-      accountInfo: this.userInfo,
-      record: this.NP.get("record")
-    });
-        }
+          if (res.msg[0].Error == '1') {
+            this.sendNotification(res.msg[0].result);
+          }
+          else {
+            this.userInfo.push({
+              unitname: unitname,
+              projectname: projectname,
+              controllerid: controllerid,
+              models_id: models_id,
+              neaplateno: neaplateno,
+              createdby: createdby,
+              location: this.location,
+              latitude: this.latitude,
+              longitude: this.longitude
+            });
+            this.nav.setRoot(AddunitsthreePage, {
+              accountInfo: this.userInfo,
+              record: this.NP.get("record")
+            });
+          }
         }
         // Otherwise let 'em know anyway
         else {
@@ -336,7 +349,7 @@ pageLoad()
       });
     // If Controller Id Check Unique
 
-   
+
   }
 
   // Remove an existing record that has been selected in the page's HTML form
@@ -378,7 +391,14 @@ pageLoad()
       models_id: string = this.form.controls["models_id"].value,
       neaplateno: string = this.form.controls["neaplateno"].value;
     console.log(this.form.controls);
-    
+    this.unitname = localStorage.setItem("unitname", unitname);
+    this.projectname = localStorage.setItem("projectname", projectname);
+    this.controllerid = localStorage.setItem("controllerid", controllerid);
+    this.models_id = localStorage.setItem("models_id", models_id);
+    this.neaplateno = localStorage.setItem("neaplateno", neaplateno);
+
+
+
     if (this.isUploadedProcessing == false) {
       if (this.isEdited) {
         this.updateEntry(unitname, projectname, controllerid, models_id, neaplateno, this.userId);

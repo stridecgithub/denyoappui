@@ -1,16 +1,12 @@
 import { Component } from '@angular/core';
-import {  NavController, ToastController, AlertController, NavParams } from 'ionic-angular';
+import {  NavController, ToastController, NavParams } from 'ionic-angular';
 import 'rxjs/add/operator/map';
 import { Http, Headers, RequestOptions } from '@angular/http';
-import { LoadingController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { EnginedetailPage } from '../enginedetail/enginedetail';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { MyaccountPage } from '../myaccount/myaccount';
 import { UnitsPage } from '../units/units';
 import { NotificationPage } from '../notification/notification';
 import { MapsPage } from '../maps/maps';
-import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
 import { OrgchartPage} from '../orgchart/orgchart';

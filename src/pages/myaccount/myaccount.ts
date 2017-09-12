@@ -4,12 +4,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import { EditprofilesteponePage } from '../editprofilestepone/editprofilestepone';
 import { HomePage } from '../home/home';
 import { UserPage } from '../user/user';
-import { UnitgroupPage } from '../unitgroup/unitgroup';
 import { UnitsPage } from '../units/units';
 import { RolePage } from '../role/role';
 import { NotificationPage } from '../notification/notification';
 import { MapsPage } from '../maps/maps';
-import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
 import { OrgchartPage } from '../orgchart/orgchart';
@@ -30,7 +28,6 @@ import { ReporttemplatePage } from '../reporttemplate/reporttemplate';
 export class MyaccountPage {
   public pageTitle: string;
   public photo: any;
-  private permissionMessage: string = "Permission denied for access this page. Please contact your administrator";
   public name: any;
   public msgcount: any;
   public notcount: any;
@@ -68,7 +65,7 @@ export class MyaccountPage {
 
   //[{"userid":"1","userdetailsid":"1","username":"webkannan","password":"webkannan","role":"1","hashtag":"@welcome","first_name":"Kannan","last_name":"Nagarathinam","email":"kannan@gmail.com","contact":"123456789","country":"2","photo":"1496647262537.jpg","job_position":"At prog","report_to":"0","company_group":"1","companygroup_name":"Denyo"}]
   ionViewWillEnter() {
-
+    localStorage.setItem("userPhotoFile", '');
     // body: string = "key=myaccount&userId=" + this.userId,
     let type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
@@ -158,24 +155,19 @@ export class MyaccountPage {
     this.nav.setRoot(OrgchartPage);
   }
 
-user()
-{
- this.nav.setRoot(UserPage);
-}
-cgroup()
-{
- this.nav.setRoot(CompanygroupPage);
-}
-urole()
-{
- this.nav.setRoot(RolePage);
-}
-orgchart()
-{
- this.nav.setRoot(OrgchartPage);
-}
-report()
-{
- this.nav.setRoot(ReporttemplatePage);
-}
+  user() {
+    this.nav.setRoot(UserPage);
+  }
+  cgroup() {
+    this.nav.setRoot(CompanygroupPage);
+  }
+  urole() {
+    this.nav.setRoot(RolePage);
+  }
+  orgchart() {
+    this.nav.setRoot(OrgchartPage);
+  }
+  report() {
+    this.nav.setRoot(ReporttemplatePage);
+  }
 }

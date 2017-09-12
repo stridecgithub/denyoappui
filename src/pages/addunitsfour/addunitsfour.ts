@@ -14,7 +14,7 @@ import { MapsPage } from '../maps/maps';
 import { ReportsPage } from '../reports/reports';
 import { CalendarPage } from '../calendar/calendar';
 import { EmailPage } from '../email/email';
-import { OrgchartPage} from '../orgchart/orgchart';
+import { OrgchartPage } from '../orgchart/orgchart';
 /**
  * Generated class for the AddcompanygroupPage page.
  *
@@ -32,10 +32,10 @@ export class AddunitsfourPage {
   public form: FormGroup;
   public unitgroups_id: any;
   public companys_id: any;
-  public compId:any;
+  public compId: any;
   public userId: any;
   public unitname: any;
-   public isSubmitted: boolean = false;
+  public isSubmitted: boolean = false;
   public projectname: any;
   public createdby: any;
   public responseResultCompany: any;
@@ -59,8 +59,8 @@ export class AddunitsfourPage {
   public addedImgLists: any;
   public userInfo = [];
   public contactInfo = [];
-   public msgcount:any;
-  public notcount:any;
+  public msgcount: any;
+  public notcount: any;
   // Flag to hide the form upon successful completion of remote operation
   public hideForm: boolean = false;
   public hideActionButton = true;
@@ -77,12 +77,12 @@ export class AddunitsfourPage {
     public fb: FormBuilder,
     public toastCtrl: ToastController, public loadingCtrl: LoadingController, private ngZone: NgZone) {
     this.loginas = localStorage.getItem("userInfoName");
-     this.compId = localStorage.getItem("userInfoCompanyId");
+    this.compId = localStorage.getItem("userInfoCompanyId");
     // Create form builder validation rules
     this.form = fb.group({
-      //"unitgroups_id": ["", Validators.required],
+      "unitgroups_id": [""],
       //"companys_id": ["", Validators.required],
-      "unitgroups_id": ["", Validators.required],
+      // "unitgroups_id": ["", Validators.required],
       "companys_id": ["", Validators.required]
     });
     this.userId = localStorage.getItem("userInfoId");
@@ -97,23 +97,22 @@ export class AddunitsfourPage {
   // Determine whether we adding or editing a record
   // based on any supplied navigation parameters
   ionViewWillEnter() {
-  this.pageLoad();
+    this.pageLoad();
   }
-  pageLoad()
-  {
-       let //body: string = "loginid=" + this.userId,
+  pageLoad() {
+    let //body: string = "loginid=" + this.userId,
       type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
       url: any = this.apiServiceURL + "/msgnotifycount?loginid=" + this.userId;
     console.log(url);
-   // console.log(body);
+    // console.log(body);
 
     this.http.get(url, options)
       .subscribe((data) => {
         console.log("Count Response Success:" + JSON.stringify(data.json()));
-       this.msgcount=data.json().msgcount;
-        this.notcount=data.json().notifycount;
+        this.msgcount = data.json().msgcount;
+        this.notcount = data.json().notifycount;
       });
     this.resetFields();
     this.getCompanyListData();
@@ -136,6 +135,12 @@ export class AddunitsfourPage {
     }
     else {
       this.isEdited = false;
+      if (localStorage.getItem("unitgroups_id")) {
+        this.unitgroups_id = localStorage.getItem("unitgroups_id");
+      }
+      if (localStorage.getItem("companys_id")) {
+        this.companys_id = localStorage.getItem("companys_id");
+      }
       this.pageTitle = 'New  Units';
     }
 
@@ -227,8 +232,17 @@ export class AddunitsfourPage {
   // for the record data
   createEntry(unitgroups_id, companys_id, createdby) {
 
-this.isSubmitted=true;
- if (localStorage.getItem("atMentionResult") != '') {
+
+
+    this.unitgroups_id = localStorage.setItem("unitgroups_id", unitgroups_id);
+
+
+    this.companys_id = localStorage.setItem("companys_id", companys_id);
+
+
+
+    this.isSubmitted = true;
+    if (localStorage.getItem("atMentionResult") != '') {
       this.alarmhashtags = localStorage.getItem("atMentionResult");
     }
 
@@ -271,7 +285,15 @@ this.isSubmitted=true;
         // If the request was successful notify the user
         if (data.status === 200) {
           this.hideForm = true;
-            localStorage.setItem("atMentionResult", '');
+          localStorage.setItem("atMentionResult", '');
+          localStorage.setItem("location", "");
+          localStorage.setItem("unitgroups_id", '');
+          localStorage.setItem("companys_id", '');
+          localStorage.setItem("unitname", '');
+          localStorage.setItem("projectname", '');
+          localStorage.setItem("controllerid", '');
+          localStorage.setItem("models_id", '');
+          localStorage.setItem("neaplateno", '');
           this.sendNotification(`Units created was successfully added`);
           this.nav.setRoot(UnitsPage);
         }
@@ -295,16 +317,16 @@ this.isSubmitted=true;
   // supplies a variable of key with a value of update followed by the key/value pairs
   // for the record data
   updateEntry(unitgroups_id, companys_id, createdby) {
-    this.isSubmitted=true;
+    this.isSubmitted = true;
     this.userInfo.push({
-      unitgroups_id: unitgroups_id,
+      //unitgroups_id: unitgroups_id,
       companys_id: companys_id,
       createdby: createdby,
 
     });
     //this.longitude = "9.918418";
     //this.latitude = "78.148566";
- if (localStorage.getItem("atMentionResult") != '') {
+    if (localStorage.getItem("atMentionResult") != '') {
       this.alarmhashtags = localStorage.getItem("atMentionResult");
     }
     this.timezone = '2017-06-15 00:00:00';
@@ -340,7 +362,7 @@ this.isSubmitted=true;
         // If the request was successful notify the user
         if (data.status === 200) {
           this.hideForm = true;
-            localStorage.setItem("atMentionResult", '');
+          localStorage.setItem("atMentionResult", '');
           this.sendNotification(`Units was successfully updated`);
           this.nav.setRoot(UnitsPage);
         }
@@ -425,7 +447,7 @@ this.isSubmitted=true;
     let type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
-      url: any = this.apiServiceURL + "/getcompanies?loginid="+this.userId;
+      url: any = this.apiServiceURL + "/getcompanies?loginid=" + this.userId;
     let res;
     console.log("URL" + url);
     this.http.get(url, options)
@@ -441,7 +463,7 @@ this.isSubmitted=true;
     let type: string = "application/x-www-form-urlencoded; charset=UTF-8",
       headers: any = new Headers({ 'Content-Type': type }),
       options: any = new RequestOptions({ headers: headers }),
-      url: any = this.apiServiceURL + "/getunitgroups?loginid="+this.userId+"&company_id="+this.compId;
+      url: any = this.apiServiceURL + "/getunitgroups?loginid=" + this.userId + "&company_id=" + this.compId;
     let res;
     console.log("URL" + url);
     this.http.get(url, options)
@@ -468,7 +490,7 @@ this.isSubmitted=true;
 
 
 
- 
+
   previous() {
     this.nav.setRoot(AddunitsthreePage, {
       accountInfo: this.userInfo,
@@ -476,7 +498,7 @@ this.isSubmitted=true;
     });
   }
 
- notification() {
+  notification() {
     this.nav.setRoot(NotificationPage);
   }
   redirectToUser() {
@@ -493,6 +515,6 @@ this.isSubmitted=true;
   }
   redirectToSettings() {
     this.nav.setRoot(OrgchartPage);
-  }  
+  }
 }
 
