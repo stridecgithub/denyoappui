@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { CalendarComponent } from '../../components/calendar/calendar.component';
+//import { CalendarComponent } from '../../components/calendar/calendar.component';
 import { Alert, NavController, Events, Toast, Modal } from 'ionic-angular';
 import * as moment from 'moment';
 import { AlarmdetailsPage } from '../alarmdetails/alarmdetails';
@@ -31,8 +31,8 @@ import { AddcalendarPage } from '../addcalendar/addcalendar';
 
 })
 export class CalendarPage {
-  @ViewChild(CalendarComponent)
-  private calendarComponent: CalendarComponent;
+ // @ViewChild(CalendarComponent)
+ // private calendarComponent: CalendarComponent;
   public pageTitle: string;
   public loginas: any;
   public notcount: any;
@@ -329,8 +329,8 @@ export class CalendarPage {
       }
     }
     for (var i = 0; i < this.eventIdentify.length; i += 1) {
-      $('.monthview-primary-with-event').removeClass('monthview-primary-with-event[_ngcontent-c1]');
-      $('.monthview-primary-with-event').addClass('eventclass');
+     // $('.monthview-primary-with-event').removeClass('monthview-primary-with-event[_ngcontent-c1]');
+     // $('.monthview-primary-with-event').addClass('eventclass');
       //let eventdate = this.eventIdentify[i]['event_date'] + " " + this.eventIdentify[i]['event_time'];// Check Date and Time
       // let eventdate = this.eventIdentify[i]['event_date'];// Check Date only
       this.calendarResultEvent.push({
