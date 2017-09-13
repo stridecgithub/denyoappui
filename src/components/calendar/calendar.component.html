@@ -23,7 +23,7 @@
   </div>
   <div class="main-view">
     <div class="ionic2-cal-month-view">
-      <div style="background-color: rgb(65,139,200);
+      <div style="background-color:gray;
     color: white;" class="ionic2-cal-item ionic2-cal-header" *ngFor="let wd of weekDays">
         {{wd}}
       </div>
@@ -89,10 +89,10 @@
         (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')" style="position: absolute;
     top: 4px;
     left: 11px;">{{d.date.date()}}</span>
-      <span class="ionic2-cal-day-of-month {{currentDate == d.date.date() && currentMonth == d.date.month() ? 'currentDataHighlights' : ''}}"
+      <span class="ionic2-cal-day-of-month {{currentDate == d.date.date()  ? 'currentDataHighlights' : ''}}"
         *ngIf="currentDate == d.date.date()" (click)="onTimeSelected(d.date.year(),d.date.month()+1,d.date.date(),'1')" style="position: absolute;
     top: 4px;
-    left: 11px;background-color: #3C91B9;color: white;">{{d.date.date()}}</span>
+    left: 11px;background-color: gray;color: white;">{{d.date.date()}}</span>
 
 
 

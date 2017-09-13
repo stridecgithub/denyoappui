@@ -7689,6 +7689,16 @@ ion-navbar ion-buttons{margin-right:15px;}
 
 
 page-unitdetails {
+    .off-man-auto-cnt {
+    padding: 0;
+    text-align: center;
+}
+    .off-man-auto {
+    background: #313131;
+    border: 1px solid #4a4a4a;
+    margin-bottom: 30px;
+    min-height: 175px;
+}
      .ion-md-settings{background:url(../img/oc.png) no-repeat center top;}
     .notificationcount{
   color: white;

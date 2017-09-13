@@ -132,7 +132,7 @@
         <span class="priorityicon"> <img *ngIf="item.service_resources" src="img/attach.png" hspace="10"/>
         <img src="img/low_priority.png" hspace="10" *ngIf="item.service_priority=='1' " />
         <img src="img/high_priority.png" hspace="10" *ngIf="item.service_priority=='2'" /></span>
-        <h6 style="float:right;margin-left: 254px;" *ngIf="item.serviced_datetime_display!='0000-00-00'">{{item.serviced_datetime_display}}</h6>
+        <h6 style="float:right;margin-left: 254px;" *ngIf="item.serviced_datetime_display!='0000-00-00'">{{item.current_datetime}}</h6>
       </ion-item>
     </ion-item>
       

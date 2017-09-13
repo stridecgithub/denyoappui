@@ -192,8 +192,8 @@
     position: absolute;    margin-top: -13px;
     margin-left: 75%;" *ngIf="item.attachments!=''" ></a>
             </p>
-            <h2>To:{{item.receiver_name}}</h2>
-            <h2 style="white-space: normal;">Subject:{{item.messages_subject}}</h2>
+            <h5>To:{{item.receiver_name}}</h5>
+            <h5 style="white-space: normal;">Subject:{{item.messages_subject}}</h5>
           </ion-item>
           <ion-item-options>
             <button class="trashcolor" (click)="doConfirm(item.message_id,item,'send')" *ngIf="MESSAGESENTDELETEACCESS=='1'">                        

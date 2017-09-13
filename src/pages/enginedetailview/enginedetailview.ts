@@ -140,7 +140,7 @@ this.unitDetailData.favoriteindication = favorite;
     
     
     console.log(this.apiServiceURL + "/orgchart?company_id=" + this.companyId + "&is_mobile=1");
-    this.iframeContent = "<iframe src=" + "http://denyoappv2.stridecdev.com/"+this.unitid+"/1/enginedetails height=350 frameborder=0></iframe>";
+    this.iframeContent = "<iframe style='position: absolute;margin-left: -16px;' src=" + "http://denyoappv2.stridecdev.com/"+this.unitid+"/1/enginedetails height=350 frameborder=0></iframe>";
   }
    notification() {
     this.nav.setRoot(NotificationPage);

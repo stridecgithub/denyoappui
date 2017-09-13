@@ -12,8 +12,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-  <ion-title  style="    text-align: center;
-    margin-top: 10px;"    class="page-title">{{pageTitle}}</ion-title>
+  <ion-title style="    text-align: center;
+    margin-top: 10px;" class="page-title">{{pageTitle}}</ion-title>
 
   <button style="float:left" ion-button (click)="notification()" style="position: absolute;
     right: 0%;
@@ -71,11 +71,33 @@
     </div>
   </ion-item>
 
- 
-
-  <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(iframeContent)"></div>
 
 
+  <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(iframeContent1)"></div>
+
+
+  <div class="off-man-auto" style="width: 61%;
+    color: white;padding-right: 2px;">
+    <div class="cnt-stat">Breaker State</div>
+    <div class="off-man-auto-cnt">
+      <img src="http://denyoappv2.stridecdev.com/assets/images/breaker_vector.png" alt="on" id="breakerstate">
+      <a href="#" class="in-out">I / O</a>
+    </div>
+    <div style="position: absolute;
+    left: 70%;">
+      <button ion-button icon-left (click)="alamInfo()" class="service-info" style="margin-right: 24%;
+    margin-top: -72%;
+    background-color: #C5021B;
+    height: 175px;">
+      	<ion-icon name="ios-warning-outline" style="font-size:32px;padding-bottom: 16px;
+    padding-top: 16px;"></ion-icon>
+        <span>Alarm</span>
+    </button>
+    </div>
+  </div>
+
+
+  <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(iframeContent2)"></div>
 
   <ion-item>
 
@@ -95,14 +117,9 @@
     
     </button>
 
- <button ion-button icon-left (click)="alamInfo()" class="service-info" style="margin-right: 27%;
-    margin-top: 2%;background-color:#C5021B">
-      	<ion-icon name="ios-warning-outline" style="font-size:32px;padding-bottom: 16px;
-    padding-top: 16px;"></ion-icon>
-        <span>Alarm</span>
-    </button>
-  
-   
+
+
+
 
 
 

@@ -221,7 +221,7 @@ export class ServicedetailsPage {
     this.service_subject = item.service_subject;
     this.service_remark = item.service_remark;
     this.photo = item.user_photo;
-    this.sdate = item.serviced_datetime + "(" + item.time_ago + ")";
+    this.sdate = item.current_datetime + "(" + item.time_ago + ")";
     // this.requestbutton=1;
     //this.next_service_date = item.next_service_date;
     this.service_priority = item.service_priority;

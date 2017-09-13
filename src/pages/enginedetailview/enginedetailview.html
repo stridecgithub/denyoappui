@@ -77,12 +77,11 @@
   </div>
   <div> <div [innerHTML]="sanitizer.bypassSecurityTrustHtml(iframeContent)"></div>
   </div>
-</ion-content>
-<ion-footer color="bluedark">
+</ion-content><ion-footer color="bluedark">
   <ion-toolbar color="bluedark">
 <ul class="quick-list">
 <li>
-    <button ion-button icon-only clear>
+    <button ion-button icon-only clear (click)="redirectToMaps()">
     	<ion-icon name="home" class="footer-icon">MAPS</ion-icon>
     </button>
 </li>  
@@ -102,9 +101,9 @@
     <button ion-button icon-only (click)="redirectCalendar()" clear>
     	<ion-icon name="bicycle" class="footer-icon">CALENDAR</ion-icon>
     </button>
-</li>     
+</li>      
 <li>    
-    <button style="width: 34px;" ion-button icon-only (click)="redirectToRole()" clear>
+    <button style="width: 34px;"ion-button icon-only (click)="redirectToSettings()" clear>
     	<ion-icon name="settings" class="footer-icon">ORG</ion-icon>
     </button>
 </li>    

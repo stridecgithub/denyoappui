@@ -40,6 +40,8 @@ export class UnitdetailsPage {
 	public item = [];
 	public colorListArr = [];
 	iframeContent: any;
+	iframeContent1: any;
+	iframeContent2: any;
 	//private _inputpdf: string = '<iframe src="http://denyoappv2.stridecdev.com/2/1/unitdetails" height="350" frameborder="0"></iframe>';
 	private apiServiceURL: string = "http://denyoappv2.stridecdev.com";
 
@@ -47,7 +49,7 @@ export class UnitdetailsPage {
 	public commentCount;
 	public msgcount: any;
 	public notcount: any;
-	public chk:any;
+	public chk: any;
 
 
 
@@ -161,10 +163,12 @@ export class UnitdetailsPage {
 	}
 
 	ionViewWillEnter() {
-		this.chk=localStorage.getItem("viewlist")
+		this.chk = localStorage.getItem("viewlist")
 
 		localStorage.setItem("unitdetailsclicked", '');
-		this.iframeContent = "<iframe id='filecontainer' src=" + this.apiServiceURL + "/" + this.unitDetailData.unit_id + "/1/unitdetails height=350 width=100% frameborder=0></iframe>";
+		//this.iframeContent = "<iframe id='filecontainer' src=" + this.apiServiceURL + "/" + this.unitDetailData.unit_id + "/1/unitdetails height=350 width=100% frameborder=0></iframe>";
+		this.iframeContent1 = "<iframe id='filecontainer' src=" + this.apiServiceURL + "/" + this.unitDetailData.unit_id + "/1/unitdetails height=150 width=100% frameborder=0></iframe>";
+		this.iframeContent2 = "<iframe id='filecontainer' src=" + this.apiServiceURL + "/" + this.unitDetailData.unit_id + "/1/unitdetails_graph height=550 width=100% frameborder=0></iframe>";
 
 		//http://denyoappv2.stridecdev.com/getcount?loginid=1&unitid=2
 
