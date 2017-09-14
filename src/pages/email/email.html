@@ -111,7 +111,7 @@
       </ion-list>
       <ion-list *ngIf="totalCount!=0  && MESSAGEINBOXVIEWACCESS=='1'">
        <ion-item-sliding *ngFor="let item of inboxLists;">
-          <ion-item style="float:left;">
+          <ion-item class="msg-item">
             <ion-avatar item-start>
               <img src="{{item.senderphoto}}">
             </ion-avatar>
@@ -130,6 +130,8 @@
                 <h5 style="margin-top:20px"*ngIf="item.message_readstatus==1" (click)="doDetails(item,'inbox')"><strong>{{item.sendername}}</strong></h5>
                 <h5  style="white-space: normal;" *ngIf="item.message_readstatus==0" (click)="doDetails(item,'inbox')"><b>{{item.messages_subject}}</b></h5>
                 <h5  style="white-space: normal;" *ngIf="item.message_readstatus==1" (click)="doDetails(item,'inbox')">{{item.messages_subject}}</h5>
+
+
 
               </div>
 
