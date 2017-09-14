@@ -8,6 +8,10 @@ page-popover {
     padding: 10px 0;
     margin: 10px auto 10px;
     width: 100px;}
-   
 
+}
+.popover-md .popover-content {
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
