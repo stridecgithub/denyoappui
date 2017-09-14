@@ -127,18 +127,20 @@
               <button (click)="favorite(item.message_id)" *ngIf="item.is_favorite==1" class="favorite" style="float: right ;width:30px;height:30px;background-color:#ffffff"></button>
               <button (click)="favorite(item.message_id)" *ngIf="item.is_favorite==0" class="unfavorite" style="float: right ;width:30px;height:30px;background-color:#ffffff"></button>
               <div style="overflow: hidden; padding-left: .5em;">
-                <h5 style="margin-top:20px" *ngIf="item.message_readstatus==0" (click)="doDetails(item,'inbox')"><b>{{item.sendername}}</b></h5>
-                <h5 style="margin-top:20px"*ngIf="item.message_readstatus==1" (click)="doDetails(item,'inbox')">{{item.sendername}}</h5>
+                <h5 style="margin-top:20px" *ngIf="item.message_readstatus==0" (click)="doDetails(item,'inbox')">
+                  <strong>{{item.sendername}}</strong></h5>
+                <h5 style="margin-top:20px"*ngIf="item.message_readstatus==1" (click)="doDetails(item,'inbox')"><strong>{{item.sendername}}</strong></h5>
                 <h5  style="white-space: normal;" *ngIf="item.message_readstatus==0" (click)="doDetails(item,'inbox')"><b>{{item.messages_subject}}</b></h5>
                 <h5  style="white-space: normal;" *ngIf="item.message_readstatus==1" (click)="doDetails(item,'inbox')">{{item.messages_subject}}</h5>
-                <p style="margin-left: 220px;float:right;font-size:10px">{{item.message_date}}</p>
+
               </div>
 
+              <p style="text-align:right;font-size:10px">{{item.message_date}}</p>
 
             </ion-item>
           </ion-item>
           <ion-item-options>
-            <button class="trashcolor" (click)="doConfirm(item.message_id,item,'inbox')" *ngIf="MESSAGEINBOXDELETEACCESS=='1'">                        
+            <button class="trashcolor" (click)="doConfirm(item.message_id,item,'inbox')" *ngIf="MESSAGEINBOXDELETEACCESS=='1'">
                          <ion-icon name="trash" class="icon-size"></ion-icon>
                     </button>
           </ion-item-options>
@@ -160,7 +162,7 @@
         </ion-select>
       </ion-item>
       <div class="error" *ngIf="totalCountSend==0 && MESSAGESENTVIEWACCESS=='1'">No sent item entries found</div>
-      
+
       <!--ion-item>
         <ion-label>Action</ion-label>
         <ion-select [(ngModel)]="pet" (ionChange)="onSendAction(pet,inboxLists)">
@@ -196,7 +198,7 @@
             <h5 style="white-space: normal;">Subject:{{item.messages_subject}}</h5>
           </ion-item>
           <ion-item-options>
-            <button class="trashcolor" (click)="doConfirm(item.message_id,item,'send')" *ngIf="MESSAGESENTDELETEACCESS=='1'">                        
+            <button class="trashcolor" (click)="doConfirm(item.message_id,item,'send')" *ngIf="MESSAGESENTDELETEACCESS=='1'">
                          <ion-icon name="trash" class="icon-size"></ion-icon>
                     </button>
           </ion-item-options>
@@ -226,10 +228,10 @@
             [(ngModel)]="to">
           <div style="position: relative;top: 12px;width: 180px;">
             <span><ion-checkbox type="checkbox" name="copytome" formControlName="copytome"  [(ngModel)]="copytome"></ion-checkbox>&nbsp; Email a copy to myself</span>
-            <span> 
+            <span>
             <ion-icon (click)="fileChooser(micro_timestamp)" *ngIf="isUploaded" name="attach" style="color: black;
     position: relative;
-   
+
     left: 10px;
     font-size:20px"></ion-icon>
            <img  (click)="getPrority(1)"  src="img/low_priority.png" style="width: 16px;
@@ -239,7 +241,7 @@
     height: 16px;
     position: absolute;
     margin-left: 50%;"  class="{{priority_highclass}}">
-           
+
     </span>
           </div>
           <div><br></div>
